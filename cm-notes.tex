@@ -11,8 +11,17 @@
 
 \usepackage{epigraph}
 
+\usepackage{clrscode}[const] %это я (сеня) добавил
+
 \usepackage{geometry}
 \geometry{verbose,a4paper,tmargin=2cm,bmargin=2cm,lmargin=2.5cm,rmargin=1.5cm}
+
+\usepackage{svg}
+\svgpath{{img/}}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
 
 %\usepackage{showframe}
 
@@ -37,9 +46,15 @@
 % {.}% Punctuation after theorem head
 % {.5em}% Space after theorem head
 % {}% Theorem head spec (can be left empty, meaning ‘normal’)
+%\theoremstyle{example}
+%\newtheorem{ex}{Пример}
+%\numberwithin{ex}{section}
+
+% это тоже я (сеня) чтобы работало у меня написал
+\newtheoremstyle{example}{}{}{}{}{\bfseries}{\smallskip}{\newline}{}
 \theoremstyle{example}
-\newtheorem{ex}{Пример}
-\numberwithin{ex}{section}
+\newtheorem{example}{Пример}
+\numberwithin{example}{section}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Теорема}
