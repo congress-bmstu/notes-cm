@@ -12,6 +12,7 @@
 \usepackage{epigraph}
 
 \usepackage{clrscode}[const] %это я (сеня) добавил
+\usepackage{pdfpages}
 
 \usepackage{geometry}
 \geometry{verbose,a4paper,tmargin=2cm,bmargin=2cm,lmargin=2.5cm,rmargin=1.5cm}
@@ -55,6 +56,7 @@
 \theoremstyle{example}
 \newtheorem{example}{Пример}
 \numberwithin{example}{section}
+% ...
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Теорема}
@@ -108,7 +110,7 @@
 % \renewcommand{\qedsymbol}{$\blacksquare$}
 
 \begin{document}
-  \pagestyle{plain}
+  \includepdf[scale=1.1]{img/dim.pdf}
 
   \tableofcontents
 
