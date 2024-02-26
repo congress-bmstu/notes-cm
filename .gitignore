@@ -1,7 +1,7 @@
 *.aux
 *.latexmain
 *.synctex.gz
-cm-notes.pdf
+*.pdf
 *.log
 *.fls
 *.fdb_latexmk
