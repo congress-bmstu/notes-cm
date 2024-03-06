@@ -1,0 +1,265 @@
+% \section{Жопа жопа жопа}
+
+% TODO ковариантные производные тензоров, ротор тензора и тд
+
+\subsection{Градиент деформации}
+
+Рассмотрим движение материальных точек сплошной среды.
+% TODO картинка две амёбы в одну попала стрела и она умерла нахуй
+
+\[
+  \mathring{\vec{r}}_i = \dfrac{\partial \mathring{\vec{x}}}{\partial X^i};
+  \quad 
+  \vec{r}_i = \dfrac{\partial \vec{x}}{\partial X^i},
+  \quad
+  \vec{x} = \vec{x}(X^i, t).
+\]
+
+Нужен новый объект, с помощью которого можно было сравнивать конфигурации $\mathcal{K}$ и $\mathring{\mathcal{K}}$.
+
+Введём тензор $E = \vec{r}_i \otimes \vec{r}^i
+= \mathring{\vec{r}}_i \otimes \mathring{\vec{r}}^i
+= g_{ij} \vec{r}^i \otimes \vec{r}^j = \mathring{g}_{ij} \mathring{\vec{r}}^i \otimes \mathring{\vec{r}}^j$
+
+Возьмём два базиса из разных конфигураций: $F = \vec{r}_i \otimes \mathring{\vec{r}}^j$ -- градиент деформации.
+
+Свойства этого тензора:
+\begin{enumerate}
+  \item Градиент деформации -- тензор преобразования векторов локального базиса $\mathring{\vec{r}}_i$ в $\vec{r}_i$ из $\mathring{\mathcal{K}}$ в $\mathcal{K}$:
+    \[
+      F \cdot \mathring{\vec{r}}_i
+      = (\vec{r}_j \otimes \mathring{\vec{r}}^j) \cdot \vec{r}_i
+      = \vec{r}_j \otimes (\mathring{\vec{r}}^j \cdot \mathring{\vec{r}}_i)
+      = \vec{r}_j \otimes \delta^j_i = \vec{r}_i.
+  \]
+
+  \item Введем элементарный радиус-вектор в $\mathring{\mathcal{K}}$:
+    $d\mathring{\vec{x}} = \vec{MM_1}$ -- вектор сдвига между двумя близкими точками.
+    Тогда $\mathring{\vec{x}} = \mathring{\vec{x}} (X^i)$.
+    Поскольку эта функция предполагается всегда гладкой в нужной нам области, то существует
+    дифференциал: $d\mathring{\vec{x}} = \dfrac{\partial \mathring{\vec{x}}}{\partial X^i} dX^i
+    = \mathring{\vec{r}}_i dX^i$ -- по сути разложение по базису, а его координатами является
+    приращения локальных координат.
+
+    % TODO рисунок разложения по базису
+
+    Аналогично определим приращение в $\mathcal{K}$ при фиксированном $t$: 
+    $d\vec{x} = \dfrac{\partial \vec{x}}{\partial X^i} dX^i = \vec{r}_i dX^i.$
+
+    % TODO тот же самый рисунок только в другой конфигурации
+
+    Одни и те же локальные координаты $\Leftrightarrow$ одна и та же материальная точка: $M = M_1$.
+
+    Важно измерять расстояния в МСС, в домах можно поставить маячки, чтобы смотреть развивается ли
+    трещина:
+    % TODO самолёт и домик
+
+    Рассмотрим теперь $F \cdot d\mathring{\vec{x}}$:
+    \[
+      F \cdot d\mathring{\vec{x}}
+      = (\vec{r}_i \otimes \mathring{\vec{r}}^i) \cdot d\mathring{\vec{x}}
+      = \vec{r}_i \otimes (\mathring{\vec{r}}^i \cdot \mathring{\vec{r}}_j dX^j)
+      = \vec{r}_i \otimes \delta^i_j dX^j
+      = \vec{r}_j dX^j = d\vec{X}
+    \]
+    Таким образом, получили, что $d\vec{X} = F \cdot d\mathring{\vec{x}}$.
+
+    Оказывается, градиент деформации преобразует вектора из начальной конфигурации в настоящую.
+
+    % TODO рисунок локальная окрестность точки M 
+
+    Следовательно, $F$ является тензором линейного преобразования малой окрестности $d\mathring{V}$ в
+    $dV$.
+
+    Свойства линейного преобразования:
+    \begin{enumerate}
+      \item Если окрестность некоторой точки $M$ $d\mathring{V} = \text{куб}$. В силу свойств
+        линейности, куб может перейти только в косоугольный параллелепипед. Можно доказать и
+        строго, но мы ограничимся словами: уравнение плоскостей -- линейные, они переходят в
+        линейные при линейном преобразовании.
+        % TODO рисунок
+
+      \item Если $d\mathring{V} = \text{шар}$, то $dV$ -- эллипсоид. Не решая никакой задачи, только
+        из свойств непрерывных гладких преобразований мы очень много можем сказать о любых возможных
+        состояниях, мы знаем чем они будут являться.
+        % TODO рисунок
+    \end{enumerate}
+
+  \item $F = \vec{r}_i \otimes \mathring{\vec{r}}^i = [\vec{r}_i \, \mathring{r}^i]$ -- тензор, а
+    что такое тензор? -- Это класс эквивалентности векторных наборов. Одно из условий попасть в этот
+    класс эквивалентности -- можно умножить одну из троек векторов на число, а другую на неё поделить
+    или более общо умножить на матрицу, а другую -- поделить.
+    $F = \tensor{Q}{^j_i} \vec{r}_i \otimes P_{kj} \mathring{\vec{r}}^k = [\tilde \vec{r}_i \otimes
+    \mathring{\tilde \vec{r}}^i]$.
+
+  \item Детерминантом тензора называется детерминант матрицы компонент тензора в смешанном базисе:
+    $\operatorname{det} A = \operatorname{det} (\tensor{A}{^i_j})$, $A = A^{ij} \vec{r}_i \otimes \vec{r}_j = A_{ij} \vec{r}^i \otimes \vecc{r}^j = \tensor{\mathring{A}}{^i_j} \mathring{\vec{r}}_i \otimes \mathring{\vec{r}}^j$.
+    Посчитаем детерминант тензора градиента деформации:
+    \[
+      F
+      = \vec{r}_i \otimes \mathring{\vec{r}}^i
+      = \tensor{Q}{^j_i} \bar{\vec{e}} \otimes \tensor{\mathring{P}}{^i_k} \bar{\vec{e}},
+      \quad \tensor{Q}{^j_i} \equiv \dfrac{\partial x^j}{\partial X^i},
+      \quad \tensor{\mathring{P}}{^i_k} = \left( \dfrac{\partial \mathring{x}^i}{\partial X^j}  \right) = \dfrac{\partial X^i}{\partial \mathring{x}^k}.
+    \]
+    \[
+      F = \left( \dfrac{\partial x^j}{\partial X^i}  \right) \left( \dfrac{\partial X^i}{\partial \mathring{x}^j}  \right) \bar{\vec{e}}_j \otimes \bar{\vec{e}}_k
+      = \dfrac{\partial x^j}{\partial \mathring{x}^k} \bar{\vec{e}}_j \otimes \bar{\vec{e}}_k.
+    \]
+    \[
+      \det F = \det \left( \dfrac{\partial x^j}{\partial \mathring{x}^k}  \right) 
+    \]
+  
+  \item Транспонированный тензор: $F^T = \mathring{\vec{r}}_i \otimes \vec{r}^i$.
+    Обратный тензор: $F^{-1} \cdot F = E$.
+    $F^{-1}$ -- существует, т.к. $\det F \neq 0$.
+    Тогда обратным к тензору градиента деформации будет $F^{-1} = \mathring{\vec{r}}_i \otimes \vec{r}^i$.
+    Проверим, что это действительно обратный тензор:
+    \[
+      F^{-1} \cdot F
+      = (\mathring{\vec{r}}_i \otimes \vec{r}^i) \cdot (\vec{r}_i \otimes \mathring{\vec{r}}^i)
+      = \mathring{\vec{r}}_i \otimes \delta^i_j \otimes \mathring{\vec{r}}^j
+      = \mathring{\vec{r}}_i \otimes \mathring{\vec{r}}^i = E
+    \]
+
+    Причем, $F^{-1 T} = \vec{r}^i \otimes \mathring{\vec{r}}_i$.
+
+  \item $\nabla \otimes \vec{a}$ и $\mathring{\nabla} \otimes \vec{a}$:
+    \[
+      \nabla \otimes \vec{a} = \vec{r}^i \otimes \dfrac{\partial \vec{a}}{\partial X^i}
+      = \vec{r}^j \delta^i_j \otimes \dfrac{\partial \vec{a}}{\partial X^i} 
+      = \vec{r}^j \otimes (\mathring{\vec{r}} )
+      = \dots
+      = F^{-1 T} \cdot \mathring{\nabla} \otimes \vec{a}.
+    \]
+    \[
+      \nabla \otimes \vec{a} = F^{-1 T} \cdot \mathring{\nabla} \vec{a}.
+      \quad
+      F^T \cdot \nabla \otimes \vec{a} = F^T \cdot F^{-1 T} \cdot \mathring{\nabla} \otimes \mathring{\vec{a}} = E \cdot \mathring{\nabla} \otimes \vec{a}.
+    \]
+    Таким образом, получили, что тензор градиента деформации полностью задаёт все преобразования 
+    из начальной конфигурации:
+    \[
+      \mathring{\nabla} \otimes \vec{a} = F^T \cdot \nabla \otimes \vec{a}.
+    \]
+\end{enumerate}
+
+\subsection{Тензоры и меры деформации}
+
+% TODO переписать (здесь пока некрасиво совсем) и проверить на опечатки
+
+Ввведём еще один способ сравнения двух конфигураций $\mathring{\mathcal{K}}$ и $\mathcal{K}$.
+Сравним напрямую метрические матрицы:
+\[
+  \varepsilon_{ij} = \dfrac{1}{2} \left( g_{ij} - \mathring{g}_{ij} \right) 
+\]
+-- компоненты тензора деформации.
+\[
+  \varepsilon^{ij} = \dfrac{1}{2} (g^{ij} - \mathring{g}^{ij})
+\]
+--  <<контравариантные>> компоненты тензора деформации. Это просто обозначение не является очень
+удачным, потому что они не получаются стандартной операцией поднятия индексов.
+
+Построим следующие 4 тензора:
+\[
+  C = \varepsilon_{ij} \mathring{\vec{r}}^i \otimes \mathring{\vec{r}}^j; \quad
+\]
+-- правый тензор деформации Коши-Грина.
+
+\[
+  A = \varepsilon_{ij} \vec{r}^i \otimes \vec{r}^j
+\]
+--правы тензор деформации Альманзи.
+
+\[
+  \varepsilon^{ij} \mathring{\vec{r}}_i \otimes \mathring{\vec{r}}_j
+\]
+-- левый тензор деформация Альманзи.
+
+\[
+  J = \varepsilon^{ij} \vec{r}_i \otimes \vec{r}_j
+\]
+-- левый тензор деформации Коши-Грина.
+
+\begin{theorem}
+  \begin{align*}
+    C &= \dfrac{1}{2} (F^T \cdot F - E); \\
+    A &= \dfrac{1}{2} (E - F^{-1 T} \cdot F^{-1}); \\
+    \Lambda &= \dfrac{1}{2} (E - F^{-1} \cdot F^{-1 T}); \\
+    J &= \dfrac{1}{2}(F \cdot F^T - E)
+  \end{align*}
+\end{theorem}
+\begin{proof}
+  \begin{equation*}
+    C
+    = \varepsilon_{ij} \mathring{\vec{r}}^i \otimes \mathring{\vec{r}}^j
+    = \dfrac{1}{2} (g_{ij} - \mathring{g}_{ij}) \mathring{\vec{r}}^i \otimes \mathring{\vec{r}}^j
+    = \dfrac{1}{2} (g_{ij} \mathring{\vec{r}}^i \otimes \mathring{\vec{r}}^j - \mathring{g}_{ij} \mathring{\vec{r}}^i \otimes \mathring{\vec{r}}^j)
+    = \dfrac{1}{2} ( \mathring{\vec{r}}^i (\vec{r}_i \cdot \vec{r}_j) \otimes \mathring{\vec{r}}^j) - E)
+    = \dfrac{1}{2} (F^T \cdot F - E).
+  \end{equation*}
+  Остальные формулы доказываются аналогично.
+\end{proof}
+
+Полезным оказывается введение меры деформации. 
+\[
+  G = g_{ij} \mathring{\vec{r}}^i \otimes \mathring{\vec{r}}^j = F^T \cdot F
+\]
+-- право мера деформации Коши-Грина.
+
+\[
+  \mathbf{g} = \mathring{g}_{ij} \vec{r}^i \otimes \vec{r}^j
+\]
+-- левая мера деформации Альманзи.
+
+\[
+  \mathbf{g}^{-1} = \mathring{g}^{ij} \vec{r}_i \otimes \vec{r}_j
+\]
+-- правая мера деформации Альманзи.
+
+\[
+  G^{-1} = g^{ij} \mathring{\vec{r}}_i \otimes \mathring{\vec{r}}_j
+\]
+-- правая мера деформации Коши-Грина.
+
+\subsection{Вектор перемещений}
+
+Рассмотрим еще один способ сравнения двух конфигураций $\mathring{\mathcal{K}}$ и $\mathcal{K}$.
+
+% TODO рисунок
+
+Введем вектор $\vec{u} = \vec{x} - \mathring{\vec{x}},$ где $\vec{x}$ и $\mathring{\vec{x}}$ --
+радиус-векторы одной и той же материальной точки $M$. Обычно используется в самом конце решения задачи, например в ANSYS сначала решается задача, потом строятся эти вектора и вот чото дальше туда сюда.
+
+Как связать $\vec{u}$ и $F$?
+Утверждение: $F = E + (\mathring{\nabla} \otimes \vec{u})^T$
+\begin{proof}
+  Рассмотрим тензор $F^T = \mathring{\vec{r}}^i \otimes \vec{r}_i = \mathring{\vec{r}}^i \otimes \dfrac{\partial \vec{x}}{\partial X^i} = \left( \mathring{\vec{r}}^i \dfrac{\partial }{\partial X^i}  \right) \otimes \vec{x} = \mathring{\vec{r}}_i \mathring{\nabla} \otimes \vec{x}$.
+  \[
+    F^T = \mathring{\nabla} \otimes \vec{x} = \mathring{\nabla} \otimes (\mathring{\vec{x}} + \vec{u}) = \mathring{\nabla} \otimes \mathring{\vec{x}} + \mathring{\nabla} \otimes \vec{u},
+  \]
+  но $\mathring{\nabla} \otimes \mathring{\vec{x}} = \dots = E$, тогда: % TODO дописать
+  $ F^T = E + \mathring{\nabla} \otimes \vec{u} $, или $F = E + (\mathring{\nalba} \otimes \vec{u})^T$.
+\end{proof}
+
+\begin{corollary}[Связь тензора деформации с вектором перемещений]
+  \[
+    C = \dfrac{1}{2} (F^T \cdot F - E)
+    = \dfrac{1}{2} ( (E + \mathring{\nabla} \otimes \vec{u})(E + \mathring{\nabla} \otimes u^T) - E)
+    = \dfrac{1}{2} ( \mathring{\nabla} \otimes \vec{u} + \mathring{\nabla} \otimes \vec{u}^T + \mathring{\nabla} \otimes \vec{u} \cdot \mathring{\nabla} \otimes \vec{u}^T )
+  \]
+  Первая часть называется симметричной частью, а вторая -- квадратичной.
+\end{corollary}
+
+Для так называемых сред с малыми деформациями (подавляющее большинство твердых веществ такие) --
+где можно пренебречь квадратичной частью. Тогда тензор $C$:
+\[
+  C = \dfrac{1}{2} (\mathring{\nabla} \otimes \vec{u} + \mathring{\nabla} \otimes \vec{u}^T) \equiv \varpepsilon,
+\]
+где $\varepsilon$ называется тензором линейных деформаций.
+
+Квадратичное слагаемое -- один из основных источников нелинейности. На ней основаны такие важные эффекты, как потеря устойчивости конструкции. На рисунке представлено некоторое здание, стоящее на тонких колоннах. Прочность будет оставаться такой же как если бы это были не колонны, а цельное что-то,
+но у колонн может возникнуть деформации, изображенные на рисунке.
+% TODO  
+
+Нелинейность является источником неединственности.

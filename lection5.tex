@@ -1,0 +1,361 @@
+\subsection{Физический (геометрический) смысл компонент тензора деформаций}
+
+Определение компонент тензора деформаций:
+\[
+  \varepsilon_{ij} = \dfrac{1}{2} \left( g_{ij} -  \mathring{g}_{ij} \right).
+\]
+
+По определению $g_{ij}$ и $\mathring{g}_{ij}$ (переходим к греческим индексам):
+\begin{align*}
+  g_{\alpha\beta} &= \mathbf{r}_\alpha \cdot \mathbf{r}_\beta \\
+  \varepsilon_{\alpha \beta} &= \dfrac{1}{2} \left( \mathbf{r}_\alpha \mathbf{r}_\beta - \mathring{\mathbf{r}}_\alpha \mathring{\mathbf{r}}_\beta \right) 
+  = 
+\end{align*}
+Было введено понятие угла $\psi_{\alpha\beta}$ между векторами:
+в $\mathbb{E}_3$ введеино понятие угла как такое число, что в скалярном произведении
+будет его косинус, т.е. $\mathbf{r}_\alpha \cdot \mathbf{r}_\beta = |\mathbf{r}_\alpha| \cdot |\mathbf{r}_\beta| \cos \psi$, тогда:
+\[
+  \varepsilon_{\alpha\beta} = \dfrac{1}{2} \left( |r_\alpha| |r_\beta| \cos \psi - |\mathring{r}_\alpha| |\mathring{r}_\beta| \cos \mathring{\psi} \right) 
+\]
+
+% TODO рисунок
+
+Рассмотрим элементарный радиус-вектор в $\mathcal{K}$ и $\mathcal{\mathring{K}}$:
+$d\mathbf{x} = \vec{M\tilde M_1} = \mathbf{r}_i dX^i$
+
+В частном случае выбор $d\mathbf{x}$, ориентированные по какому-нибудь координатному направлению:
+$d\mathbf{x}_\alpha = \vec{MM_\alpha} = \mathbf{r}_\alpha dX^\alpha$ (нет суммирования).
+В начальный момент времени: $d\mathring{\mathbf{x}}_\alpha = \vec{MM_\alpha} = \mathring{\mathbf{r}}_\alpha dX^\alpha$.
+% TODO рисунок
+
+Введем длины этих векторов:
+\begin{align*}
+  d\mathring{s}_\alpha &\equiv |d\mathring{x}_\alpha|
+  = (d\mathring{x}_\alpha \cdot d\mathring{x}_\alpha)^{1/2}
+  =  |\mathring{\mathbf{r}}_\alpha| |dX^\alpha|, \\
+  ds_\alpha &\equiv |dx_\alpha|
+  = (dx_\alpha \cdot dx_\alpha)^{1/2}
+  =  |\mathbf{r}_\alpha| |dX^\alpha|.
+\end{align*}
+
+Как их сравнивать? Введем отклонение:
+\[
+  ds_\alpha - d\mathring{s}_\alpha = (|\mathbf{r}_\alpha| - |\mathbf{\mathring{r}}_\alpha|) |dX^\alpha|,
+\]
+\[
+  \dfrac{ds_\alpha}{d\mathring{s}_\alpha}
+  = \dfrac{|\mathbf{r}_\alpha| |dX^\alpha|}{|\mathbf{\mathring{r}}_\alpha| |dX^\alpha| }
+  = \dfrac{|\mathbf{r}_\alpha|}{|\mathbf{\mathring{r}}_\alpha|}.
+\]
+\[
+  \delta_\alpha
+  \equiv \dfrac{ds_\alpha - d\mathring{s}_\alpha}{d\mathring{s}_\alpha}
+  = \dfrac{|\mathbf{r}_\alpha|}{|\mathbf{\mathring{r}}_\alpha|} - 1.
+\]
+-- относительное удлинение.
+
+Из определения относительного удлинения следует, что
+\[
+  |\mathbf{r}_\alpha| = (1 + \delta_\alpha) \cdot |\mathring{\mathbf{r}}_\alpha|.
+\]
+
+Тогда тензор деформаций:
+\[
+  \varepsilon_{\alpha\beta} = \dfrac{1}{2} \left( (1+\delta_\alpha) (1+\delta_\beta) \cos\psi - \cos\mathring{\psi} \right).
+\]
+
+Рассмотрим что у нас получилось:
+Если $\alpha=\beta$, при этом $\psi_{\alpha\alpha} = \mathring{\psi}_{\alpha\alpha} = 0$, тогда 
+\[
+  \varepsilon_{\alpha\alpha}
+  = \dfrac{1}{2} |\mathring{\mathbf{r}}_\alpha|^2 ((1+\delta_\alpha)^2 - 1)
+  = \dfrac{1}{2} \mathring{g}_{\alpha\alpha} ((1+\delta_\alpha)^2 - 1)
+\]
+
+Выберем теперь такие координаты, чтобы в начальный момент времени они совпадали с декартовыми:
+$X^\alpha = \mathring{x}^\alpha$.
+% TODO рисунок бруска (уже был)
+Тогда $\mathring{g}_{\alpha\alpha} = 1$, тогда
+\[
+  \varepsilon_{\alpha\alpha}
+  = \dfrac{1}{2} ((1+\delta_\alpha)^2 - 1)
+\]
+
+Рассмотрим еще случай, когда $|\delta_\alpha| \ll 1$ во всех точках тела, тогда
+\[
+  \varepsilon_{\alpha\alpha} \approx \delta_\alpha.
+\]
+
+\begin{example}
+  % TODO рисунок брусочек сплющивается.
+
+  Так как удлинение бруска однородно в данной задаче, то для всех точек тела верно:
+  \[
+    \delta_1 = \dfrac{l_1 - \mathring{l}_1}{\mathring{l}_1} = \dfrac{ds_\alpha - d\mathring{s}_\alpha}{d\mathring{s}_\alpha}
+  \]
+
+  Удлинение элементарных отрезоков, ориентированных вдоль координатных прямых.
+\end{example}
+
+Для большинства твердых тел ($\sim 95\%$) оказывается, что $|\delta_\alpha| \ll 1$!
+
+Диаграмма деформации:
+% TODO график $T_{aa}$ от $delta_a$. -- можно не рисовать, всё равно еще не проходили.
+
+% TODO еще был пример с рисунком, но он говно.
+
+Если $|\delta_\alpha| \ll 1$, то среду называют средой с малыми деформациями.
+Иначе, среду называют с конечными деформации.
+
+Рассмотрим теперь случай, когда $\alpha\neq\beta$. Выберем начальную систему координат 
+совпадающей с декартовой: $X^\alpha = \mathring{x}^\alpha$, т.е.
+$\mathbf{\mathring{r}}_\alpha = \bar{\mathbf{e}}$. Тогда $\psi_{\alpha\beta} = \pi/2$.
+Тогда
+\[
+  \varepsilon_{\alpha\beta} = \dfrac{1}{2} (1+\delta_\alpha)(1+\delta_\beta) \cos\psi_{\alpha\beta}.
+\]
+
+Введем обозначение: $\chi_{\alpha\beta} = \psi_{\alpha\beta} - \mathring{\psi}_{\alpha\beta}
+= \psi_{\alpha\beta} - \dfrac{\pi}{2}$ -- угол скашивания.
+\[
+  \cos\psi_{\alpha\beta} = \cos\left(\chi_{\alpha\beta} + \dfrac{\pi}{2}\right)
+  = \sin\chi_{\alpha\beta}
+\]
+
+Тогда
+\[
+  \varepsilon_{\alpha\beta} = \dfrac{1}{2} (1+\delta_\alpha)(1+\delta_\beta) \sin\chi_{\alpha\beta}
+\]
+
+Если $|\delta_\alpha| \ll 1$ (вероятно, имеется ввиду еще и $\delta_\beta \ll 1$), т.е.
+рассматривается случай малых деформаций, тогда и углы деформаций малы: $\chi_{\alpha\beta} \ll 1$,
+тогда:
+\[
+  \varepsilon_{\alpha\beta} = \dfrac{1}{2} \chi_{\alpha\beta}
+\]
+
+\begin{example}
+  % TODO рисунок
+\end{example}
+
+Таким образом, получили, что в случае малых деформаций:
+\[
+  \begin{cases}
+    \varepsilon_{\alpha\beta} = \dfrac{1}{2} \chi_{\alpha\beta}, \\
+    \varepsilon_{\alpha\alpha} = \delta_\alpha.
+  \end{cases}
+\]
+
+\subsection{Преобразование ориентированной площадки}
+
+Рассмотрим в $\mathring{\mathcal{K}}$ такой объект, как $d\mathring{\mathbf{x}}_\alpha$.
+% TODO рисунок
+Взяв пару из тройки элементарных радиус-векторов, вычислим их векторное произведение:
+\[
+  d\mathring{\mathbf{x}}_\alpha \times d\mathring{\mathbf{x}}_\beta
+  = \mathring{\mathbf{n}} d\mathring{\Sigma}_\gamma
+  \equiv \mathring{\mathbf{n}} d\gamma,
+\]
+где $d\mathring{\Sigma}_\gamma$ -- площадь элементарной площадки, образованной элементарными
+радиус-векторами $d\mathring{\mathbf{x}}_\alpha$ и $d\mathring{\mathbf{x}}_\beta$.
+
+Как преобразуется $\mathring{\mathbf{n}} d\mathring{\Sigma}_\gamma$ при переходе из
+$\mathcal{\mathring{K}}$ в $\mathcal{K}$?
+Воспользуемся тем, что вектор $d\mathring{\mathbf{x}}_\alpha = \vec{MM_1}$ соединяет те же самые
+точки, что и $d\mathbf{x}_\alpha = \vec{MM_1}$.
+\[
+  \mathbf{n} d\Sigma_\gamma = d\mathbf{x}_\alpha \times d\mathbf{x}_\beta
+  = \mathbf{r}_\alpha dX^\alpha \times \mathbf{r}_\beta dX^\beta
+  = \sqrt{g} \epsilon_{\alpha\beta\gamma} \mathbf{r}^\gamma dX^\alpha dX^\beta.
+\]
+Аналогично, $\mathring{\mathbf{n}} d\mathring{\Sigma} = \sqrt{\mathring{g}} \epsilon_{\alpha\beta\gamma} \mathring{\mathbf{r}}^\gamma dX^\alpha dX^\beta$.
+
+Вспомним о градиенте деформации, а точнее об его свойстве: $\mathbf{r}_i = F\cdot\mathring{\mathbf{r}}_i$.
+
+Подставим это в выражение выше:
+\[
+  \mathbf{n} d\Sigma_\gamma
+  = \sqrt{g} \epsilon_{\alpha\beta\gamma} \mathbf{r}^\gamma dX^\alpha dX^\beta
+  = \sqrt{g} \epsilon_{\alpha\beta\gamma} F^{-1T} \mathring{\mathbf{r}}^\gamma dX^\alpha dX^\beta
+  = \dots
+  = \sqrt{\dfrac{g}{\mathring{g}}} F^{-1T} \mathring{\mathbf{n}} d\mathring{\Sigma}.
+\]
+
+
+\subsection{Полярное разложение}
+
+\begin{theorem}[о полярном разложении]
+  Всякий невырожденный тензор $F$, то есть такой, который $\det F \neq 0 \forall x^i \in V_x \forall t \geqslant 0$ можно представить в виде:
+  \begin{equation}\label{lec_5:theorem_polar}
+    F = O\cdot U = V\cdot O,
+  \end{equation}
+  где $O$ -- тензор поворота сопровождающей деформации, $O$ -- ортогональный тензор,
+    $U$ и $V$ -- правый и левый тензоры искажения -- симметричные ($U^T = U$), положительно определённые
+    тензоры ($\forall \mathbf{a} \neq \mathbf{0} : \mathbf{a} \cdot U \cdot \mathbf{a} > 0$),
+    причём разложение \eqref{lec_5:theorem_polar} единственное.
+\end{theorem}
+
+% TODO сделать окружение remark
+\begin{remark*}
+  Теорема может быть применена к любому невырожденному тензору, в частности к градиенту деформации
+  $F$.
+\end{remark*}
+
+\begin{remark*}
+  Покажем, что $\det F \neq 0$, действительно, вспомним, что такое детерминант тензора --
+  это детерминант матрицы компонент тензора в любом смешанном базисе:
+  \[
+    \det F = \det (\mathbf{r}_i \otimes \mathring{\mathbf{r}}^i)
+    = \tensor{F}{_i^j} \bar{\mathbf{e}}_i \otimes \bar{\mathbf{e}}^j % TODO ошибка блять
+  \]
+
+  \[
+    \det F = \det \left( \dfrac{\partial x^i}{\partial \mathring{x}^j}  \right) \neq 0 
+    \forall \mathring{x}^i \in \mathring{V}.
+  \]
+  -- верно для любого невырожденного тела.
+\end{remark*}
+
+\begin{remark*}
+  Вот такие тензоры мы уже знаем: $E, F, C, A, \Lambda, J$.
+
+  $C = \dfrac{1}{2} \left( F^T \cdot F - E \right) \forall t \geqslant 0$, но $F(0) = \mathbf{r}_i(t) |_{t=0} \otimes \mathring{\mathbf{r}}^i = \mathring{\mathbf{r}}_i \otimes \mathring{\mathbf{r}}^i = E \Rightarrow C|_{t=0} = 0 \Rightarrow \det C |_{t=0} = 0$.
+
+  Пусть для некоторого невырожденного тензора $B$ применим теорему о полярном разложении:
+  $B = O_B \cdot U_B = V_B \cdot O_B$.
+
+  А что для тензора $E$? Оказывается, что $O_E = U_E = V_E = E$
+\end{remark*}
+
+\begin{corollary}
+  \begin{enumerate}
+    \item $F^T \cdot F = (O\cdot U)^T \cdot (O \cdot U) = U^T \cdot O^T \cdot U \cdot U = U^T \cdot U= U \cdot U = U^2$, и $F \cdot F^T = (V O) (V O)^T = \dots = V^2$;
+
+    \item $F^{-1T} \cdot F^{-1} = (V \cdot O)^{-1T} \cdot (V \cdot O)^{-1}
+      = (O^{-1} \cdot V^{-1})^T \cdot O^{-1} \cdot V^{-1}
+      = V^{-1T} \cdot O^{-1T} \cdot O^{-1} \cdot V^{-1}
+      = V^{-2}$;
+
+    \item Тогда тензор Коши-Грина: $C = \dfrac{1}{2} (F^T \cdot F - E) = \dfrac{1}{2} \left( U^2 - E \right)$ -- поэтому называется правый тензор деформации Коши-Грина.
+
+    \item $A = \dfrac{1}{2} \left( E - F^{-1T} \cdot T^{-1} \right)  = \dfrac{1}{2} \left( E - V^{-2} \right) $ -- левый тензор деформации Альмандзи.
+
+    \item $\Lambda = \dfrac{1}{2} (E - F^{-1} \cdot F^{-1T}) = \dfrac{1}{2} (E - U^{-2})$ --
+      правый тензор деформации Альмандзи.
+
+    \item $J = \dfrac{1}{2} \left( F \cdot F^T - E \right) = \dfrac{1}{2} (V^2 - E)$
+      -- левый тензор деформации Коши-Грина.
+  \end{enumerate}
+\end{corollary}
+
+\begin{definition}
+  Введём понятие собственный векторов и собственных значений:
+  Будем говорить, что $\mathbf{p}_{A\alpha}$ -- правый собственный вектор для тензора второго ранга $A$, если
+  он удовлетворяет уравнению $A \cdot \mathbf{p}_{A\alpha} = \lambda_{A\alpha} \cdot \mathbf{p}_{A\alpha}$, а числа $\lambda_{A\sigma}$ -- правое собственное значение.
+
+  Аналогично, левым собственным вектором называется такой вектор $\mathbf{p}^*_{A\alpha}$, что:
+  $\mathbf{p}^*_{A\alpha} \cdot A = \lambda^*_{A\alpha} \cdot \mathbf{p}^*_{A\alpha}$.
+\end{definition}
+
+\begin{corollary}
+  Если $A$ -- симметричный, то:
+  \begin{itemize}
+    \item все собственные значения вещественные;
+    \item все собственные векторы вещественнозначные, т.е. все компоненты в декартовом базисе
+      вещественные.
+    \item $\mathbf{p}_{A\alpha} = \mathbf{p}^*_{A\alpha}$
+    \item $\mathbf{p}_{A\alpha} \cdot \mathbf{p}_{A\beta} = \delta_{\alpha\beta}.$
+  \end{itemize}
+
+  Если он еще и положительно определенный, то все собственные значения еще и положительны.
+\end{corollary}
+
+\begin{corollary}
+  Применим эту теорему для $U$ и $V$, так как они симметричны и положительно определенные, то для них существуют собственные значения и собственные векторы.
+\end{corollary}
+
+Утверждение: $\lambda_\alpha = \mathring{\lambda}_\alpha$, но в общем случае 
+% TODO дописать
+
+\begin{corollary}
+  Представим симметричный тензор в собственном базисе. Если $A$ -- симметричный,
+  $\mathbf{p}_{A\alpha}$ -- собственные векторы, $\lambda_{A\alpha}$ -- собственные значения,
+  тогда
+  \[
+    A = \sum_{\alpha=1}^3 \lambda_{A\alpha} \mathbf{p}_{A\alpha} \otimes \mathbf{p}_{A\alpha}
+    = A^{ij} \mathbf{r}_i \otimes \mathbf{r}_j.
+  \]
+\end{corollary}
+\begin{proof}
+  Для доказательства подставим в определение собственных векторов для симметричного тензора:
+  \[
+    A \cdot \mathbf{p}_{A\alpha}
+    = \sum_{\beta=1}^3 \lambda_{A\beta} (\mathbf{p}_{A\alpha}\otimes \mathbf{p}_{A\beta}) \cdot \mathbf{p}_{A\alpha}
+    = \sum_{\beta=1}^3 \lambda_{A\beta} \mathbf{p}_{A\alpha} \otimes \delta_{\alpha\beta}
+    = \sum_{\beta=1}^3 \lambda_{A\beta} 
+    = \lambda_{A\alpha} \mathbf{p}_{A\alpha}
+  \]
+\end{proof}
+
+Применим теперь это следствие к $U$ и $V$:
+\[
+  U= \sum_{\alpha=1}^3 \lambda_\alpha \mathring{\mathbf{p}}_\alpha \otimes \mathring{\mathbf{p}}_\alpha
+\]
+\[
+  V= \sum_{\alpha=1}^3 \lambda_\alpha \mathbf{p}_\alpha \otimes \mathbf{p}_\alpha
+
+\]
+
+\begin{corollary}
+  \[
+    U^2 = \sum_{\alpha=1}^3 \lambda_\alpha \mathring{\mathbf{p}}_\alpha \otimes \mathring{\mathbf{p}}_\alpha \cdot 
+    \left( \sum_{\beta=1}^3 \lambda_\beta \mathring{\mathbf{p}}_\beta \otimes \mathring{\mathbf{p}}_\beta \right)
+    = \sum_{\alpha, \beta = 1}^3 \lambda_\alpha \lambda_\beta \mathring{\mathbf{p}}_\alpha \otimes (\mathring{\mathbf{p}}_\alpha \cdot \mathring{\mathbf{p}}_\beta) \otimes \mathring{\mathbf{p}}_\beta
+    = \sum_{\alpha=1}^3 \lambda_\alpha \mathring{\mathbf{p}}_\alpha \otimes \mathring{\mathbf{p}}_\alpha.
+  \]
+
+  Аналогичное можно доказать для любой степени, а также для функции от тензора, определение которой 
+  будет дано ниже.
+\end{corollary}
+
+\begin{definition}
+  Функцией от тензора называется:
+  \[
+    f(U) \equiv \sum_{\alpha=1}^3 f(\lambda_\alpha) \mathring{\mathbf{p}}_\alpha \otimes \mathring{\mathbf{p}}_\alpha.
+  \]
+\end{definition}
+
+
+Собственные значения тензоров деформации:
+$C = \dfrac{1}{2} (F^T \cdot F - E) = \dfrac{1}{2} \left( U^2 - E \right) = \sum_{\alpha=1}^3 \dfrac{1}{2} (\lambda^2 - 1) \mathring{\mathbf{p}}_\alpha \otimes \mathring{\mathbf{p}}_\alpha$.
+
+\begin{corollary}
+  Как связаны $\mathring{\mathbf{p}}_\alpha$ и $\mathbf{p}_\alpha$? ответ убил:
+  \[
+    \mathbf{p}_\alpha = O \cdot \mathring{\mathbf{p}}_\alpha.
+  \]
+
+  % TODO рисунок с большой буквой О
+\end{corollary}
+
+Тензор градиента деформации можно представить в своём <<собственном>> базисе, состоящем из
+собственных векторов $U$ и $V$:
+\[
+  F = \sum_{\alpha=1}^3 \lambda_{\alpha} \mathbf{p}_\alpha \otimes \mathring{\mathbf{p}}_\alpha,
+\]
+а тензор $O$:
+\[
+  O = \mathbf{p}_i \otimes \mathring{\mathbf{p}}^i
+\]
+
+\begin{corollary}
+  Выберем $d\mathring{\mathbf{x}}_\alpha = d\mathring{K} \mathring{\mathbf{p}}_\alpha = |d\mathring{\mathbf{x}}_\alpha| \mathring{\mathbf{p}}_\alpha$. Тогда
+  \[
+    d\mathbf{x}_\alpha = F \cdot d\mathring{\mathbf{x}}_\alpha = \sum_{\alpha=1}^3 \lambda_\beta \mathbf{p} \otimes \delta_{\alpha\beta} |d\mathring{\mathbf{x}}_\alpha| = \dots = \lambda_\alpha \mathbf{p}_\alpha |d\mathring{\mathbf{x}}_\alpha|.
+  \]
+
+  То есть $d\mathbf{x}_\alpha = \lambda_\alpha \mathbf{p}_\alpha |d\mathring{\mathbf{x}}_\alpha|$.
+
+  Если выбирать собственные вектора единичной длины, то $|d\mathbf{x}_\alpha| = \lambda_\alpha |d\mathring{\mathbf{x}}_\alpha|$, отсюда следует геометрический смысл собственных значений -- 
+  если в отсчетной конфигурации выбрать векторы по специальным направлениям  (которые мы сможем узнать только после появления тензора градиента деформации), то в актуальной конфигурации этот вектор останется коллинеарным этому направлению, а длина увеличится на собственное значение, соответствующее этому направлению.
+\end{corollary}
