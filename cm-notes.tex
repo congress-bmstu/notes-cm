@@ -24,6 +24,8 @@
 \usepackage{subcaption}
 \usepackage{float}
 
+\newcommand{\dimus}[1]{\begin{quotation} \emph{#1} \flushright--- Димитриенко Ю.\,И.
+ \end{quotation}}
 %\usepackage{showframe}
 
 % \usepackage{accents}
@@ -51,12 +53,19 @@
 %\newtheorem{ex}{Пример}
 %\numberwithin{ex}{section}
 
-% это тоже я (сеня) чтобы работало у меня написал
-\newtheoremstyle{example}{}{}{}{}{\bfseries}{\smallskip}{\newline}{}
+\newtheoremstyle{example}% name
+{0.7cm}% Space above
+{0.7cm}% Space below
+{\small}% Body font
+{}% Indent amount
+{\small\scshape}% Theorem head font
+{.}% Punctuation after theorem head
+{.5em}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’)
+
 \theoremstyle{example}
 \newtheorem{example}{Пример}
 \numberwithin{example}{section}
-% ...
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Теорема}
