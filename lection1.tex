@@ -99,7 +99,7 @@
 
 
 \subsection{Методы МСС}
-Рассматриваются следующие науки: МСС, физика, химия, математика.
+Рассмотрим следующие науки: МСС, физика, химия, математика.
 
 \begin{enumerate}
   \item По объектам, которые изучает МСС, она просто \textsl{часть физики}.
@@ -113,7 +113,7 @@
     \begin{enumerate}[label=$\mathbf{A_{\arabic*}}$.]
       \item Аксиома сплошности.
       \item Рассматривается евклидово пространство $\mathcal{E}_3^a$.
-      \item существование абсолютного времени.
+      \item Аксиома существования абсолютного времени.
     \end{itemize}
 \end{enumerate}
 
@@ -219,19 +219,32 @@ $P^j_i$, то есть $P^i_j Q^j_k = \delta^i_k$;
 
   Перечислим ещё некоторые факты, известные из курса линейной алгебры.
   \begin{itemize}[label=--]
-    \item $|\mathbf{a}| = \sqrt{ \mathbf{a} \cdot \mathbf{a}}$;
-    \item $g_{ij} = \mathbf{e}_i \cdot \mathbf{e}_j$ -- метрическая матрица;
-    \item $g^{ij} g_{jk} = \delta^i_k$;
-    \item $\mathbf{e}^i = g^{ik} \mathbf{e}_k$ -- векторы взаимного базиса;
-    \item $\mathbf{e}^i \cdot \mathbf{e}_j = (g^{ik} \mathbf{e}_k) \cdot \mathbf{e}_j = g^{ik} (\mathbf{e}_k \cdot \mathbf{e}_j) = g^{ik} g_{kj} = \delta^i_j$;
-    \item Частный случай: если $\bar{\mathbf{e}}_i$ -- ортонормированный, т.е.
-      $\mathbf{e}_i \cdot \mathbf{e}_j = \delta_{ij}$. Тогда $g_{ij} = \delta_{ij}$, тогда
-      $g^{ij} g_{jk} = \delta^i_k$ и $g^{ij} = \delta^{ij}$. Тогда $\bar{\mathbf{e}}^i = \delta^{ik} \bar{\mathbf{e}}_k$
+    \item \emph{длиной вектора} мы называем скаляр $|\mathbf{a}| = \sqrt{
+      \mathbf{a} \cdot \mathbf{a}}$,
+    \item \emph{метрическая матрица} определяется выражением $g_{ij} =
+      \mathbf{e}_i \cdot \mathbf{e}_j$,
+    \item символом $ g^{ij} $ обозначается матрица, обратная к метрической:
+      $g^{ij} g_{jk} = \delta^i_k$,
+    \item векторы $\mathbf{e}^i = g^{ik} \mathbf{e}_k$ называют \emph{векторами
+      взаимного базиса},
+    \item $\mathbf{e}^i \cdot \mathbf{e}_j = (g^{ik} \mathbf{e}_k) \cdot
+      \mathbf{e}_j = g^{ik} (\mathbf{e}_k \cdot \mathbf{e}_j) = g^{ik} g_{kj} =
+      \delta^i_j$,
+    \item обозначив ортонормированный базис как $\bar{\mathbf{e}}_i$ (т.е.
+      $\bar{\mathbf{e}}_i \cdot \bar{\mathbf{e}}_j = \delta_{ij}$), заметим, что
+      для него $g_{ij} =
+      \delta_{ij}$, а значит,
+      $g^{ij} g_{jk} = \delta^i_k$ и $g^{ij} = \delta^{ij}$. В этом случае
+      $\bar{\mathbf{e}}^i = \delta^{ik} \bar{\mathbf{e}}_k$.
   \end{itemize}
 \end{definition}
 
-Векторное произведение в $\mathcal{E}_3$:
+Векторное произведение в $\mathcal{E}_3$ мы определим как
 \[
   \mathbf{a} \times \mathbf{b} = \frac{1}{\sqrt{g}} \varepsilon^{ijk} a_i b_j \mathbf{e}_k
-  = \sqrt{g} \varepsilon_{ijk} a^i b^j \skew{-7}\mathbf{e}^k.
+  = \sqrt{g} \varepsilon_{ijk} a^i b^j \skew{-7}\mathbf{e}^k,
 \]
+где $ g = \Delta g_{ij} $, а \emph{символ Леви -- Чевиты} $ \varepsilon_{ijk} $
+равен чётности перестановки $ (ijk) $ (напр., $ \varepsilon_{123} =
+\varepsilon_{231} = \varepsilon_{312} = 1 $, $
+\varepsilon_{132} = -1 $, а $ \varepsilon_{122} = 0 $).
