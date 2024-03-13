@@ -1,0 +1,384 @@
+\subsection{Геометрическая картина преобразования малой окрестности произвольной материальной
+точки $M$}
+
+% TODO рисунок
+
+Согласно теореме, полярное разложение градиента деформации: 
+\[
+  F = O \cdot U = V \cdot O
+\]
+
+Тогда
+\[
+  d\mathbf{x} = O \cdot U \cdot d\mathring{\mathbf{x}} = V \cdot O \cdot d \mathring{\mathbf{x}}.
+\]
+
+Введём обозначения:
+\[
+  \begin{cases}
+    d\mathbf{x}' = U \cdot d\mathring{\mathbf{x}}, \\
+    d\mathbf{x} = O \cdot d\mathbf{x}',
+  \end{cases}
+\]
+\[
+  \begin{cases}
+    d\mathbf{x}' = O \cdot d\mathring{\mathbf{x}}, \\
+    d\mathbf{x} = V \cdot d\mathbf{x}',
+  \end{cases}
+  
+\]
+
+таким образом, с помощью полярного разложения преобразование малой окрестности
+$dV$ точки $M$ при переходе из $\mathring{K}$ в $K$ можно представить как суперпозицию
+двух преобразований. Причём это можно сделать двумя способами:
+\begin{itemize}
+  \item преобразование с помощью $U$ или $V$ (изменение углов и преобразование длин);
+  \item преобразование поворота как жесткого целого.
+\end{itemize}
+
+\begin{example}
+  Геометрическая картина преобразования малой окрестности произвольной материальной
+точки $M$:
+  \begin{itemize}
+    \item Первый способ:
+      Если $d\mathring{V}$ -- куб. На рисунке представлено действие тензора $U$ (или $V$),
+      а далее действие тензора $O$ -- просто поворот.
+      % TODO рисунок три кубика
+      Меняются углы и длины ребёр -- так действует $U$. После этого действует тензор $O$, который 
+      сохраняет углы и длины.
+
+    \item Второй способ:
+      сначала выполнен поворот, потом применён тензор $V$.
+  \end{itemize}
+\end{example}
+
+
+
+\subsection{Скоростные характеристики движения сплошной среды}
+
+Введём понятие \emph{скорости} материальной точки $M$.
+
+Рассмотрим закон движения материальной точки сплошной среды:
+\begin{equation}\label{lec_6:eq_zakon_dv}
+  \mathbf{x} = \mathbf{x} (X^i, t), X^i \in V_{x}, t \in [0, t_{max})
+\end{equation}
+По предплоложению, закон движения гладкий в каждой точке, а также невырожденный.
+
+Дифференцируя \eqref{lec_6:eq_zakon_dv}:
+\[
+  \mathbf{v}(X^i, t) \equiv \left. \dfrac{\partial \mathbf{x}}{\partial t} (X^i, t) \right|_{X^i}
+\]
+
+Разложим закон движения по декартовому базису:
+$\mathbf{x} = x^i \bar{\mathbf{e}}_i = x^i(X^j, t) \bar{\mathbf{e}}_i$.
+Тогда: $\mathbf{v} = \dfrac{\partial }{\partial t} \left( x^i \bar{\mathbf{e}}_i \right) 
+  = \dfrac{\partial x^i}{\partial t} \bar{\mathbf{e}}_i = \bar{v}^i \bar{\mathbf{e}}_i$.
+Декартовы компоненты вектора скорости:
+$\bar{v}^i (X^j, t) = \dfrac{\partial x^i}{\partial t} (X^j, t)$.
+
+Рассмотрим произвольное гладкое векторное поле, переменное по $X^i$ и $t$:
+$\mathbf{a} = \mathbf{a}(X^i, t) = \mathbf{a}(X^j(x^k, t), t) = \tilde{\mathbf{a}} (x^k, t)$.
+Тогда рассмотрим производную:
+$ \dfrac{d\mathbf{a}}{dt} \equiv \left.\dfrac{\partial \mathbf{a}}{\partial t} (X^j, t) \right|_{X^i}$ -- полная производная от векторного поля по времени $t$ (aka \emph{субстанциональная}).
+
+Рассмотрим теперь представление этой полной производной:
+\[
+  \dfrac{d\mathbf{a}}{dt} = \dfrac{d}{dt} \tilde{\mathbf{a}}(x^k, t)
+  = \dfrac{d}{dt} \tilde{\mathbf{a}} (x^k(X^i, t), t)
+  = \dfrac{\partial \hat{\mathbf{a}}}{\partial x^k} \cdot \dfrac{\partial x^k}{\partial t}
+  + \left. \dfrac{\partial \hat{\mathbf{a}}}{\partial t} \right|_{x^k}
+\]
+
+Преобразуем первое слагаемое:
+\begin{multline*}
+  \dfrac{\partial \tilde{\mathbf{a}}}{\partial x^k} \cdot \dfrac{\partial x^k}{\partial t} 
+  = \dfrac{\partial \mathbf{a}}{\partial X^i} \cdot \dfrac{\partial X^i}{\partial x^k} \cdot \dfrac{\partial x^k}{\partial t}
+  = \dfrac{\partial \mathbf{a}}{\partial X^i} \cdot \tensor{P}{^i_k} \cdot \mathbf{v}^k (x^i, t)
+  = \mathbf{v}^j \cdot \delta^k_j \cdot \tensor{P}{^i_k} \cdot \dfrac{\partial \mathbf{a}}{\partial X^i} = \\
+  = \mathbf{v}^j \cdot \bar{\mathbf{e}}_j \cdot \bar{\mathbf{e}}^k \cdot \tensor{P}{^i_k} \cdot \dfrac{\partial \mathbf{a}}{\partial X^i}
+  = \mathbf{v} \cdot \mathbf{r}^i \otimes \dfrac{\partial \mathbf{a}}{\partial X^i} 
+  = \mathbf{v} \cdot \nabla \otimes \mathbf{a}
+\end{multline*}
+
+Таким образом:
+\begin{equation}\label{lec_6:full_derivative}
+  \dfrac{d \mathbf{a}}{dt}
+  = \mathbf{v} \cdot \nabla \otimes \mathbf{a}
+  + \left. \dfrac{\partial \hat{\mathbf{a}}}{\partial t} \right|_{x^k}
+\end{equation}
+
+% \[
+%   \dfrac{d}{dt} \mathbf{a} = \left. \dfrac{\partial \mathbf{a}}{\partial t} (x^i, t) \right|_{x^i}
+%     + \mathbf{v} \cdot \nabla \otimes \mathbf{a}
+% \]
+
+
+$\mathbf{v} \cdot \nabla \otimes \mathbf{a}$ -- конвективная производная от векторного поля $\mathbf{a}$.
+
+% TODO рисунок какие-то пауки чото палки синусоида чиво
+
+Обобщением формулы \eqref{lec_6:full_derivative} для скаляров будет:
+\[
+  \dfrac{d\varphi}{dt} (x^i, t) = \left. \dfrac{\partial \varphi}{\partial t} \right|_{x^i}
+  + \mathbf{v} \cdot \nabla \varphi.
+\]
+
+Для тензорного поля:
+\[
+  \dfrac{d\Omega}{dt} = \left. \dfrac{\partial \Omega}{\partial t} (x^i, t) \right|_{x^i}
+    + \mathbf{v} \cdot \nabla \otimes \Omega.
+\]
+
+Еще введём интересный объект, рассмотрение свойств которого даже не входит в курс:
+
+\begin{definition}
+  $D = \dfrac{1}{2} \left( \nabla \otimes \mathbf{v} + \nabla \otimes \mathbf{v}^T \right) $
+  называется \emph{тензором скоростных деформаций} (симметричный).
+\end{definition}
+
+
+
+\section{Законы сохранения}
+
+\subsection{Закон сохранения массы}
+
+\paragraph{Аксиома 4. Закон сохранения массы}
+Для всякой сплошной среды $V$ в $\mathcal{K}$ в любой момент времени $t>0$
+существует скалярная функция $M(V, t)$, называемая \emph{массой тела} (массой
+сплошной среды), и обладающая следующими свойствами:
+\begin{itemize}
+  \item Положительность: $M>0, M \in \mathbb{R}_{+}$;
+  \item Аддитивность: $M(V_1 \bigcup V_2, t) = M(V_1, t) + M(V_2, t)$
+    для любого разбиения области $V$, в том числе и на континуальное разбиение.
+  \item Инвариантность по отношению к любому движению: $M(V_1, t) = \operatorname{const}$
+    $\Leftrightarrow$ $ \dfrac{dM}{dt} = 0 $, если тело состоит из одних и тех 
+    же материальных точек.
+\end{itemize}
+
+Массу нельзя определить ни через какие введёные выше понятия. Впервые масса появляется
+в этой аксиоме.
+
+% TODO рисунок
+
+\begin{corollary}
+  В силу аддитивности массы массу сплошной среды $V$ можно представить следующим образом:
+  $V = \int_V dV,$ так как каждая сплошная среда, в том числе $dV$ обладает
+  массой, то обозначим массу элементарного объёма $dV$ как $dm$ (следует из аксиомы и из
+  принципов дифференциального исчисления). Тогда в силу аддитивности:
+  $M(V, t) = \int_V dm$.
+\end{corollary}
+
+\begin{definition}
+  % TODO рисунок
+
+  Введём отношение $ \dfrac{dm}{dV} \equiv \rho > 0$ и назовём его \emph{плотностью}
+  вещества (согласно принятым обозначениям, $dV$ -- объём области $dV$).
+
+  В отличие от массы, плотность определена в точке -- это предел отношения
+  массы к объёму окрестности: $\rho = \lim_{|\Delta V| \to 0} \dfrac{\Delta m}{|\Delta V|} = \dfrac{dm}{dV}$.
+  Таким образом, $\rho(X^i, t)$ -- скалярное поле.
+\end{definition}
+
+\begin{corollary}
+  Следовательно, $dm = \rho dV$. Тогда масса тела: $M = \int_V \rho \, dV$, $\rho(x^i, t), x^i \in V(t), t\in[0, t_{max})$
+\end{corollary}
+
+Если $ \dfrac{dM}{dt} = 0 $, тогда закон сохранения массы в интегральной форме:
+\[
+  \dfrac{d}{dt} \int\limits_{V(t)} \rho dV = 0
+\]
+
+\begin{corollary}
+  Так как масса тел сохраняется для любых моментов времени, если тела состоят 
+  из одних и тех же точек, то для элементарного объёма $d\mathring{V}$ и $dV$
+  масса должна сохраняться: если $d\mathring{V} \to d\mathring{m} \mathring{\rho} d\mathring{V}$
+  и $dV \to dm = \rho dV$, то
+  \begin{equation}\label{lec_6:eq_lagrange_1form}
+    dm = d\mathring{m} \Leftrightarrow
+    \mathring{\rho} d\mathring{V} = \rho dV.
+  \end{equation}
+  -- закон сохранения массы в дифференциальной форме, или уравнение неразрывности в 
+  переменных Лагранжа в форме №1.
+  .
+  % TODO рисунок
+\end{corollary}
+
+
+
+\subsection{Формы №2 и №3 уравнения неразрывности}
+
+Вспомним, что такое $d\mathring{V}$: $d\mathring{V} = d\mathbf{x}_1 \cdot \left( d\mathring{\mathbf{x}}_1 \times d\mathring{\mathbf{x}}_3 \right) $ -- смешанное произведение, если $d\mathring{\bar{x}}_\alpha = \vec{MM}_\alpha$, то $d\mathbf{x}_\alpha = \vec{MM}_\alpha$.
+
+Так как $d\mathring{\mathbf{x}}_\alpha = \mathring{\mathbf{r}}_\alpha dX^\alpha$,
+$d\mathbf{x}_\alpha = \mathbf{r}_\alpha dX^\alpha$, то $d\mathring{V} = \mathring{\mathbf{r}}_1 \cdot \left( \mathring{\mathbf{r}}_2 \times \mathring{\mathbf{r}}_3 \right) dX^1 dX^2 dX^3 $,
+и, аналогично: $dV = \mathbf{r}_1 \cdot \left(\mathbf{r}_2 \times \mathbf{r}_3 \right) dX^1 dX^2 dX^3$, тогда $ \dfrac{dV}{d\mathring{V}} = \sqrt{\dfrac{g}{\mathring{g}}} $.
+
+Вспомним \eqref{lec_6:eq_lagrange_1form}: $ \dfrac{\rho}{\mathring{\rho}} = \sqrt{\dfrac{g}{\mathring{g}}} $, тогда
+\[
+  \rho \sqrt{g} = \mathring{\rho} \sqrt{\mathring{g}}
+\]
+-- вторая форма уравнения неразрывности в переменных Лагранжа.
+
+$\dots$
+
+\[
+  \sqrt{\dfrac{g}{\mathring{g}}}
+  = \det\left(\dfrac{\dfrac{\partial x^i}{\partial X^j}}{\dfrac{\partial \mathring{x}^k}{\partial X^j}}\right)
+  = \det\left({\dfrac{\partial x^i}{\partial X^j} \cdot \dfrac{\partial X^j}{\partial \mathring{x}^k}}\right)
+  = \det \left( \dfrac{\partial x^i}{\partial \mathring{x}^k}  \right) 
+\]
+
+Но $F = \left( \dfrac{\partial x^i}{\partial \mathring{x}^j}  \right) \bar{\mathbf{e}_i} \otimes \bar{\mathbf{e}}^j$,
+и $\det F = \det \left( \dfrac{\partial x^i}{\partial \mathring{x}^j}  \right) $.
+
+Таким образом: $\sqrt{\dfrac{g}{\mathring{g}}} = \det F$.
+
+\[
+  \dfrac{\rho}{\mathring{\rho}} = \sqrt{\dfrac{\mathring{g}}{g}} = \dfrac{1}{\det F}
+  \Rightarrow
+  \mathring{\rho} = \rho \cdot \det F.
+\]
+
+То есть именно геометрия определяет изменение плотности (но не начальную плотность), несмотря
+на то, что масса возникает независимо от геометрии.
+
+
+
+\subsection{Дифференцирование интегралов по подвижному объёму}
+
+\[
+  M(t) = \int_{V(t)} \rho dV
+  = \int_{V(0)} \rho(X^i, 0) \, d\mathring{V}
+  = \int_{\mathring{V}} \mathring{\rho} \, d\mathring{V}
+  = \mathring{M}
+\]
+.
+
+Таким образом, всегда можно сказать, что $\int_V \rho \, dV = \int_\mathring{V} \mathring{\rho} \, d\mathring{V}$
+
+Рассмотрим далее следующий интеграл: $\int_{V(t)} \mathbf{a} (x^i, t) \, dV$
+% TODO рисунок ежа
+
+Вычислим $\dfrac{d}{dt} \int_{V(t)} \mathbf{a}(x^i, t) \, dV$. Согласно правилам
+замены переменных от $x^i$ к $\mathring{x}^i$: $x^i = x^i(\mathring{x}^j, t)$
+при фиксированном $t$. Тогда:
+\begin{multline*}
+  \dfrac{d}{dt} \int_{V(t)} \mathbf{a}(x^i, t) \, dV
+  = \dfrac{d}{dt} \int_{\mathring{V}} \mathbf{a}(\mathring{x}^i, t) \det \left( \dfrac{\partial x^i}{\partial \mathring{x}^j}  \right) \, d\mathring{V}
+  = \dfrac{d}{dt} \int_{\mathring{V}} \mathbf{a}(\mathring{x}^i, t) \sqrt{\dfrac{g}{\mathring{g}}} \, d\mathring{V} = \\
+  = \int_{\mathring{V}} \dfrac{d}{dt} \left( \mathbf{a} \sqrt{\dfrac{g}{\mathring{g}}} \right) \, d\mathring{V}
+  = \int_{\mathring{V}} \dfrac{1}{\sqrt{\mathring{g}}} \left( \dfrac{d\mathbf{a}}{dt}\sqrt{g} + \mathbf{a} \dfrac{d\sqrt{g}}{dt} \right) \, d\mathring{V} = 
+\end{multline*}
+Имеет место следующая формула (без доказательства): $\dfrac{d}{dt}\sqrt{g} = \sqrt{g} \, \nabla \cdot \mathbf{v}$.
+Тогда продолжая:
+\begin{multline*}
+  = \int_{\mathring{V}} \dfrac{\sqrt{g}}{\sqrt{\mathring{g}}} \left( \dfrac{d\mathbf{a}}{dt} + \mathbf{a} \cdot \nabla \cdot \mathbf{\mathring{v}} \right) \, d\mathring{V}
+  = \int_{V(t)} \left( \dfrac{d \mathbf{a}}{dt} + \mathbf{a} \nabla \cdot \mathbf{v} \right) \, dV = \\
+  = \int_{V(t)} \left( \left. \dfrac{\partial \mathbf{a}}{\partial t} \right|_{x^i} 
+    + \mathbf{v} \cdot \nabla \otimes \mathbf{a} + \mathbf{a} \nabla \cdot \mathbf{v}\right) dV
+  = \int_{V(t)} \left( \dfrac{\partial \mathbf{a}}{\partial t} + \nabla \cdot \left( \mathbf{v} \otimes \mathbf{a} \right)  \right) dV
+\end{multline*}
+
+Таким образом:
+\[
+  \dfrac{d}{dt} \int_{V(t)} \mathbf{a}(x^i, t) \, dV
+  = \int_{V(t)} \left( \dfrac{\partial \mathbf{a}}{\partial t} + \nabla \cdot \left( \mathbf{v} \otimes \mathbf{a} \right)  \right) dV
+\]
+-- формула дифференцирования интеграла по переменному объёму (обобщение формулы
+дифференцирования интеграла с переменным верхним пределом).
+
+
+
+\subsection{Уравнение неразрывности в переменных Эйлера}
+
+Применим эту формулу к частному случаю $\mathbf{a} = \varphi \bar{\mathbf{e}}_1$, где
+$\varphi(x^i, t)$ -- скалярное поле.
+\[
+  \dfrac{d}{dt} \int_V \varphi \bar{\mathbf{e}}_1 \, dV
+  = \int_V \left( \dfrac{\partial \varphi}{\partial t} \bar{\mathbf{e}}_1 + \nabla \cdot \left( \mathbf{v} \otimes \varphi \bar{\mathbf{e}}_1 \right)  \right) \, dV
+  = \int_V \left( \dfrac{\partial \varphi}{\partial t}  + \nabla \cdot (\varphi \mathbf{v}) \right) dV
+\]
+В качестве $\varphi$ выберем плотность:
+\[
+  \dfrac{d}{dt} \int_V \rho dV
+  = \int_V \left( \dfrac{\partial \rho}{\partial t} + \nabla (\rho \mathbf{v}) \right) \, dV
+\]
+
+Из закона сохранения массы в интегральной форме следует, что 
+\begin{equation}\label{lec_6:eq_mass_integ}
+  \int_V \left( \dfrac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) \right) \, dV = 0
+\end{equation}
+
+% TODO чтото тут
+
+\[
+  \int_{V(t)} \Omega dV = 0
+\]
+-- если $V(t)$ -- некоторая конкретная область, тогда это уравнение -- интегральное
+(Вольтерры), если $V(t)$ -- произвольная (т.е. ищем решения, верные для целого класса
+областей), тогда $\Omega = 0$. Вот таким образом можно перейти от интегрального
+представления закона к дифференциальному.
+
+Применим такую процедуру к \eqref{lec_6:eq_mass_integ}:
+\[
+  \dfrac{\partial \rho}{\partial t}  + \nabla \cdot (\rho \mathbf{v}) = 0, 
+  \rho, \mathbf{v} // (x^i, t), x^i \in V, t \in [0, t_{max}]
+\]
+-- уравнение неразрывности в переменных Эйлера. 
+
+Это одно из уравнений газовой динамики. Оно имеет дивергентную форму --
+это такая форма, когда перед всеми частными производными коэффициенты единица:
+в декартовом базисе это уравнение принимает вид:
+\[
+  \dfrac{\partial \rho}{\partial t}  + \dfrac{\partial \rho \mathbf{v}^i}{\partial x^i} = 0.
+\]
+также оно первого порядка, гиперболического типа.
+
+Отметим, что все законы сохранения будут иметь похожую форму.
+
+Преобразуем:
+\begin{align*}
+  \dfrac{\partial \rho}{\partial t} + \nabla \rho \mathbf{v} + \rho \nabla \cdot \mathbf{v} &= 0 \\
+  \left( \dfrac{\partial \rho}{\partial t} + \mathbf{v} \nabla \rho \right) &= - \rho \nabla \mathbf{v} \\
+  \dfrac{d \rho}{dt} &= - \rho \nabla \cdot \mathbf{v}
+\end{align*}
+последнее называют уравнением неразнывности в полных дифференциалах.
+
+\subsection{Закон изменения количества движения (закон сохранения импульса)}
+
+Обоснование этого закона (нестрогое). Рассмотрим точки массами $m_i$ (в сплошной среде такого
+быть не может), каждая со скоростью $\mathbf{v}_i$. Какие-то точки пусть будут соединены
+какими-то связями. Вектор $m_i \mathbf{v}_i$ назовём вектором импульса (количества движения)
+материальной точки. Рассмотрим $\dfrac{d}{dt} \sum_{i=1}^N m_i \mathbf{v}_i = \sum_{i=1}^N \mathbf{F}_i^{(e)}$ ($\mathbf{F}_i^{(e)}$ -- внешние силы, а внутренние силы компенсируются).
+
+% TODO рисунок
+
+Пока нету понятия силы, и оказывается, что нельзя ввести силу из того, что мы уже имеем.
+
+\begin{definition}
+  % TODO рисунок
+  Векторная величина:
+  \[
+    \mathbf{I} = \int_V \mathbf{v} \, dm
+  \]
+  называется вектором \emph{количества движения} (вектор импульса) сплошной среды.
+\end{definition}
+
+
+\paragraph{Аксиома 5. Закон изменения количества движения}
+
+Любой паре тел сопоставляется вектор-функция $\mathcal{F}(V_1, V_2, t)$, называемая
+вектором силы взаимодействия тел $V_1$ и $V_2$, обладающая следующими свойствами:
+\begin{itemize}
+  \item Аддитивность: $\mathcal{\mathbf{F}}(V_1 \bigcup V_1', t)
+    = \mathcal{\mathbf{F}}(V_1, V_2, t) + \mathcal{\mathbf{F}}(V_1', V_2, t)$
+    (аналогично для разбиения тела $V_2$). Это условие выполняется для любого
+    (в том числе континуального) разбиения.
+  \item Для любого тела $V$, изменение его вектора количества движения $\mathbf{I}$
+    определяется его суммарным вектором сил $\mathcal{\mathbf{F}}$ взаимодействия
+    данного тела со всеми окружающими его телами:
+    \[
+      \dfrac{d\mathbf{I}}{dt} = \mathcal{\mathbf{F}}.
+    \]
+    Причем некоторые части этого вектора сил могут быть нулевым.
+\end{itemize}
