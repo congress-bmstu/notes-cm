@@ -39,7 +39,7 @@
 
 % \usepackage{bm}
 
-% \usepackage[colorlinks=true, linkcolor=black, urlcolor=black]{hyperref}
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=black]{hyperref}
 % \newtheoremstyle{example}% name
 % {0.7cm}% Space above
 % {0.7cm}% Space below
@@ -80,13 +80,29 @@
 \newtheorem{utv}{Утверждение}
 \newtheorem*{utv*}{Утверждение}
 
+% \newcounter{dfnbis}
 \theoremstyle{definition}
 \newtheorem{definition}{Определение}
-\newenvironment{dfnbis}[1]
-  {\renewcommand{\thedefinition}{\ref{#1}$'$}%
-   \addtocounter{definition}{-1}%
+% \newenvironment{dfnbis}[2][\thedfnbis]
+% {\renewcommand{\thedefinition}{\ref{#2}\repeat{#1}{$'$} }%
+%    \addtocounter{definition}{-1}%
+%    \begin{definition}}
+%   {\end{definition}}
+% \newenvironment{dfnbis}[2][$'$]
+% {\renewcommand{\thedefinition}{\ref{#2}#1}%
+%    \addtocounter{definition}{-1}%
+%    \begin{definition}}
+%    {\end{definition}\renewcommand{\thedefinition}{\ref{#2}}}
+% \newenvironment{dfnbis}[1]
+% {\renewcommand{\thedefinition}{\ref{#1}$'$}%
+%    \addtocounter{definition}{-1}%
+%    \begin{definition}}
+%    {\end{definition}}
+\newenvironment{dfnbis}
+{\addtocounter{definition}{-1}%
+  \renewcommand{\thedefinition}{\arabic{definition}$'$}%
    \begin{definition}}
-  {\end{definition}}
+   {\end{definition}}
 \newtheorem*{definition*}{Определение}
 \newtheorem{question}{Вопрос}
 
@@ -94,6 +110,7 @@
 \newtheorem{remark}{Замечание}
 \newtheorem*{remark*}{Замечание}
 \numberwithin{remark}{section}
+
 
 % \newcommand{\toP}{\xrightarrow[]{\mathsf P}} % сходимость по вероятности
 % \newcommand{\toPN}{\xrightarrow[]{\text{п.н.}}} % сходимость почти наверное

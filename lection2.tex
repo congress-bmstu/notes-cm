@@ -3,12 +3,12 @@
 В евклидовом пространстве можно ввести, например, \emph{метрическую
 матрицу}
 \[
-  g_{ij} = \mathbf{e}_i \cdot \mathbf{e}_j,
+  g_{ij} = \mathbf{e}_i \cdot \mathbf{e}_j.
 \]
 
-Также еще вот $\forall \mathbf{a} \in \mathcal{E}_n, \exists a^i :  \mathbf{a} = a^i \mathbf{e}_i$.
+% Также еще вот $\forall \mathbf{a} \in \mathcal{E}_n, \exists a^i \colon  \mathbf{a} = a^i \mathbf{e}_i$.
 
-Еще вот есть тензоры. Например, градиент деформации:
+Еще вот есть тензоры. Например, \emph{градиент деформации} имеет вид
 \[
   F = \mathbf{r}_i \otimes \mathring{\mathbf{r}}^i,
 \]
@@ -17,8 +17,9 @@
 	\centering
 	\includesvg[scale = 0.8]{lec02_vecs1}
 \end{figure}
-где $\mathring{\mathbf{r}}_i \cdot \mathring{\mathbf{r}}^j = \delta_i^j$,
-  $\otimes$ -- тензорное произведение.
+где $\mathring{\mathbf{r}}_i \cdot \mathring{\mathbf{r}}^j = \delta_i^j$, а
+символом
+  $\otimes$ обозначается тензорное произведение.
   
 
 \begin{wrapfigure}{r}{0.5\textwidth}
@@ -26,15 +27,15 @@
 	\includesvg[scale=0.8]{lec02_RandLvecs}
 \end{wrapfigure}
 
-Если совместить базисы (перенести к началу координат перенести), то получим объект, состоящий
-из векторов: $\mathring{\mathbf{r}}_1$, $\mathring{\mathbf{r}}_2$, $\mathring{\mathbf{r}}_3$, $\mathbf{r}_1$,
-$\mathbf{r}_2$, $\mathbf{r}_3$. Запишем эти вектора в таком порядке:
+Если совместить базисы (перенести к началу координат), то получим объект, состоящий
+из векторов $\mathring{\mathbf{r}}_1$, $\mathring{\mathbf{r}}_2$, $\mathring{\mathbf{r}}_3$, $\mathbf{r}_1$,
+$\mathbf{r}_2$, $\mathbf{r}_3$. Запишем эти векторы в следующем порядке:
 \[
   \mathbf{r}_1 \mathring{\mathbf{r}}_1 \mathbf{r}_2 \mathring{\mathbf{r}}_2 \mathbf{r}_3 \mathring{\mathbf{r}}_3 = \mathbf{r}_i \mathbf{r}^i,
 \]
-это -- \emph{векторный набор}. В каждой паре первый назовём \emph{левым} вектором, а
-второй -- \emph{правым}. Сейчас мы этот векторный набор собрали из двух базисов, но вот потом
-разберёмся как его построить по каким-то просто наборам векторов. 
+получив некоторый \emph{векторный набор}. В каждой паре первый назовём \emph{левым} вектором, а
+второй --- \emph{правым}. В данном случае набор был построен из векторов базиса,
+но в дальнейшем это не будет иметь значения.
 
 %\begin{figure}[H]
 %	\centering
@@ -49,185 +50,213 @@ $\mathbf{r}_2$, $\mathbf{r}_3$. Запишем эти вектора в тако
 	\includesvg[scale=0.6]{lec02_blobs}
 \end{wrapfigure}
 
-Один из способов определить тензор (второго ранга):
-
-\begin{definition}[тензора второго ранга]
-  Тензор второго ранга -- это класс эквивалентости векторных наборов.
+Назовём теперь один из способов определить тензор (второго ранга).
+\begin{definition}
+  \emph{Тензором второго ранга} мы называем класс эквивалентости векторных наборов.
 \end{definition}
 
 \[
   \mathbf{r}_i = F \cdot \mathbf{r}_i^0.
 \]
-\newline
 
-\subsection{Наиболее основные подходы к определению тензоров (2 ранга)}
 
-\begin{definition}
-  Тензор -- такой опрератор линейного преобразования векторов, который действует таким образом:
+
+\subsection{Основные подходы к определению тензоров (ранга 2)}
+\begin{definition}[алгебраическое]
+  \label{tensor-def}
+  \emph{Тензором} называется такой оператор линейного преобразования векторов,
+  который действует следующим образом:
   \[
-    \mathbf{b}, \mathbf{a} \in \mathcal{E}_n : \mathbf{a} = T \cdot \mathbf{b}.
+    \mathbf{a}, \mathbf{b} \in \mathcal{E}_n\colon \mathbf{a} = T \cdot \mathbf{b}.
   \]
 \end{definition}
 
+\renewcommand{\thedefinition}{\ref{tensor-def}$'$}
+\addtocounter{definition}{-1}
 \begin{definition}
-  Тензор -- некоторый инвариантный объект, который в некотором базисе (диадном) $\mathbf{e}_i \otimes \mathbf{e}_j$ имеет компоненты $T^{ij}$ (матрица компонент).
+  Тензором называется некоторый инвариантный объект, который в некотором базисе
+  (\emph{диадном}) $\mathbf{e}_i \otimes \mathbf{e}_j$ имеет компоненты $T^{ij}$ (матрица компонент).
   При переходе в другой базис $\mathbf{e}_i \to \mathbf{e}_i' = Q^j_{\, i} \mathbf{e}_j$ компоненты тензора
-  будут преобразовываться по аналогии с компонентами вектора:
-  \[
+  будут преобразовываться по аналогии с компонентами вектора, то есть, как
+  известно,
+  \begin{gather*}
     \mathbf{a} = a^i \mathbf{e}_i = {a^i}' {\mathbf{e}_i}' = a^i P^k_{\,i} \mathbf{e}_k'
     \Rightarrow
-    {a^k}' = P^k_{\, i} a^i.
-  \]
-
-  \[
-    {T^{ij}}' = P^i_{\, k} P^j_{\, l} T^{kl}.
-  \]
-
+    {a^k}' = P^k_{\, i} a^i, \quad \text{а}\\
+    {T^{ij}}' = P^i_{\, k} P^j_{\, l} T^{kl},
+  \end{gather*}
+  где, конечно, $ P = Q^{-1} $.
 \end{definition}
+\renewcommand{\thedefinition}{\arabic{definition}}
 
-Получается, тензор мы вводим с помощью некоторого порождающего пространства:
-$\mathbf{a} \in \mathcal{L}_n, \mathbf{e}_i, \mathbf{e}_i' \in \mathcal{L}_n$.
+Выходит, тензор мы вводим с помощью некоторого порождающего пространства
+$\mathbf{a} \in \mathcal{L}_n$, $\mathbf{e}_i, \mathbf{e}_i' \in \mathcal{L}_n$.
 
-Впринцепе определение правильное, но вызывает некоторые вопросы:
+В целом определение корректное, но оставляет некоторые вопросы. Именно,
 \begin{enumerate}
-  \item что такое инвариантный объект? -- ну то, что он не зависит от базиса (так же как и векторы).
+  \item Что такое инвариантный объект? Это объект, который подобно векторам не
+    зависит от базиса;
+  \item Как найти координаты тензора хоть в каком-то базисе? В формуле
+    $T = T^{ij} e_i \otimes e_j$ ничего не говорится о происхождении базисных
+    диад;
 
-  \item где разложение тензора по базису? т.е. как найти его координаты хоть в каком-то базисе? 
-    $T = T^{ij} e_i \otimes e_j$ -- здесь непонятно что это за базисные диады.
-
-  \item порождающее пространство является линейным. Должны прийти к тому, что тензор является
-    линейным оператором. таким образом, оба определения являются трактованием части свойств
-    
+  \item Порождающее пространство является линейным. Значит, что бы мы ни делали,
+    мы придём к тому, что тензор является
+    линейным оператором. Оба определения являются трактованием лишь части
+    свойств:
     \begin{figure}[H]
     	\centering
     	\includesvg[scale=0.8]{lec02_squares}
     \end{figure}
 
-  \item нет самой конструкции тензора -- вот в геометрическом определении выше четко алгоритм 
-    построения приведён.
+  \item Нет самой конструкции тензора. Например, в геометрическом определении
+    выше приведён чёткий алгоритм 
+    построения.
 \end{enumerate}
 
-Вот у этих дядей тензоры строятся аналогично нашему построению:
-\begin{itemize}
-  \item Ефимов, Розендорнд
-  \item Победря Б.Е.
-  \item Тарлаковский Д.В.
+У следующих авторов тензоры строятся аналогично нашему курсу:
+\begin{itemize}[label=--]
+  \item Ефимов, Розендорнд,
+  \item Победря Б.\,Е.,
+  \item Тарлаковский Д.\,В.
 \end{itemize}
-однако, векторные наборы у нас вполне конкретной длины, а у них он произвольной длины.
+Однако векторные наборы у нас вполне конкретной длины, в то время как согласно
+данным
+авторам они имеют произвольную длину.
 
+\renewcommand{\thedefinition}{\ref{tensor-def}$''$}
+\addtocounter{definition}{-1}
 \begin{definition}[геометрическое]
 Пусть
+
   \begin{enumerate}
-    \item $\mathcal{L}_n$ -- линейное (векторное) пространство -- \emph{порождающее пространство}.
-      Выберем 2 системы векторов в $\mathcal{L}$: $\mathbf{a}_i, \mathbf{b}^{[i]}, i = \overline{1, n}$.
-      (квадратные скобки -- просто обозначение).
+    \item $\mathcal{L}_n$ --- линейное (векторное) пространство --- \emph{порождающее пространство}.
+      Выберем две системы векторов в $\mathcal{L}_n$: $\mathbf{a}_i, \mathbf{b}^{[i]}, i = \overline{1, n}$.
+      (квадратные скобки --- просто обозначение).
 
-    \item Построим формальный векторный набор из $\mathbf{a}_i, \mathbf{b}^{[j]}$ длины $2n$:
-      Вектора из $\mathbf{a}_i$ называем левыми, а из $\mathbf{b}^{[i]}$ -- правыми: 
-      $A \equiv \mathbf{a}_1 \mathbf{b}^{[1]} \mathbf{a}_2 \mathbf{b}^{[2]} \dots \mathbf{a}_n \mathbf{b}^{[n]}
-      \equiv \mathbf{a}_i \mathbf{b}^{[i]}$.
-      Здесь у нас n пар векторов (и в каждой паре есть левый $\mathbf{a}_i$ и правый вектор
-      $\mathbf{b}^{[j]}$).
+    \item Построим формальный векторный набор из $\mathbf{a}_i,
+      \mathbf{b}^{[j]}$ длины $2n$.
+      Векторы из $\mathbf{a}_i$ называем левыми, а из $\mathbf{b}^{[i]}$
+      правыми. Таким образом\footnote{Далее скобки и запятые будут опускаться.}, 
+      $A \equiv ((\mathbf{a}_1, \mathbf{b}^{[1]}), (\mathbf{a}_2,
+      \mathbf{b}^{[2]}), \dots (\mathbf{a}_n, \mathbf{b}^{[n]}))
+      \equiv ((\mathbf{a}_i, \mathbf{b}^{[i]}))$.
+      Здесь у нас $ n $ пар векторов (и в каждой паре $ i $ есть левый $\mathbf{a}_i$ и правый вектор
+      $\mathbf{b}^{[i]}$).
 
-    \item Введем операции с векторными наборами:
+    \item Введем теперь операции с векторными наборами.
       \begin{enumerate}
-        \item сложение однотипных векторных наборов. Однотипными будем называть такие наборы, у 
-          которых совпадают хотя бы либо все левые либо все правые векторы:
+        \item \textsc{Сложение} однотипных векторных наборов. \emph{Однотипными} будем называть такие наборы, у 
+          которых совпадают либо все левые, либо все правые векторы:
           \[
             A_1 \equiv \mathbf{a}_i \mathbf{b}^{[i]} \leftrightarrow A_2 = \mathbf{a}_i \mathbf{c}^{[i]}; 
             \quad
             A_1 \leftrightarrow A_3 = \mathbf{d}_i \mathbf{b}^{[i]}.
           \]
-          тогда:
+          Тогда
           \[
             A_1+A_2 = \mathbf{a}_i (\mathbf{b}^{[i]} + \mathbf{c}^{[i]}); \quad
             A_1+A_3 = (\mathbf{a}_i + \mathbf{d}_i) \mathbf{b}^{[i]}.
           \]
-          Это частичная операция -- то есть такая, которая определена только на подмножестве всех.
+          Это частичная операция, то есть такая, которая определена только на
+          подмножестве элементов (векторов). К тому же, как легко видеть, она рефлексивна,
+          симметрична, но не транзитивна, поэтому не может быть названа
+          эквивалентностью.
 
-        \item Умножение на число $s \in \mathbb{R}$.
+        \item \textsc{Умножение} на число $s \in \mathbb{R}$.
           \[
             sA = (s \mathbf{a}_i) \mathbf{b}^{[i]} = \mathbf{a}_i (s \mathbf{b}^{[i]}).
           \]
+          Данное выражение показывает, что мы называем равными не только
+          полностью совпадающие наборы.
         
-        \item \emph{Эквивалентность} векторных наборов:
-          Векторные наборы $A$ и $B$ называются эквивалентными, если выполняется хотя бы одно 
+        \item \textsc{Эквивалентность} векторных наборов.
+          Векторные наборы $A$ и $B$ называются \emph{эквивалентными}, если выполняется хотя бы одно 
           из следующих условий:
           \begin{enumerate}
-            \item векторные наборы $A$ и $B$ состоят из одних и тех же пар, но упорядоченных
+            \item Векторные наборы $A$ и $B$ состоят из одних и тех же пар, но упорядоченных
               произвольным образом.
               
               Например,
-                $A = a_1 b^{[1]} a_2 b^{[2]}, \, B = a_2 b^{[2]} a_1 b^{[1]}$ тогда $A \sim B$.
+              $A = \mathbf{a}_1 \mathbf{b}^{[1]} \mathbf{a}_2 \mathbf{b}^{[2]},
+              \, B = \mathbf{a}_2 \mathbf{b}^{[2]} \mathbf{a}_1 \mathbf{b}^{[1]}$, откуда $A \sim B$.
 
-            \item Набор $B$ (А) может быть получен из другого набора с помощью согласованной операции
+            \item Набор $A$ может быть получен из другого набора с помощью согласованной операции
               умножения левых и правых векторов:
               \[
-                A = \mathbf{a}_i \mathbf{b}^{[i]} \sim B = (s \mathbf{a}_i) (\dfrac{1}{s} \mathbf{b}^{[i]})
-                \forall s \in \mathbb{R}, s \neq 0.
+                A = \mathbf{a}_i \mathbf{b}^{[i]} \sim B = (s \mathbf{a}_i)
+                (s^{-1}\mathbf{b}^{[i]})
+                \quad \forall s \in \mathbb{R},\ s \neq 0.
               \]
 
-            \item если в A и B все векторы $\mathbf{a}_i$ и $\mathbf{b}^{[i]}$ совпадают, кроме тех пар,
+            \item Если в $A$ и $B$ все векторы $\mathbf{a}_i$ и $\mathbf{b}^{[i]}$ совпадают, кроме тех пар,
               у которых хотя бы один вектор нулевой.
               Например,
               $A=\mathbf{a}_1 \mathbf{b}^{[1]} (\mathbf{a}_i \mathbf{0}) \sim B = \mathbf{a}_1 \mathbf{b}^{[1]} (\mathbf{0} \mathbf{b}^{[2]}) \sim \mathbf{a}_1 \mathbf{b}^{[1]} (\mathbf{c}_{2} \mathbf{0})$.
           \end{enumerate}
 
-        \item Пусть теперь есть некоторый векторный набор $A = \mathbf{a}_i \mathbf{b}^{[i]}$ тогда введем 
+        \item Пусть теперь есть некоторый векторный набор $A = \mathbf{a}_i
+          \mathbf{b}^{[i]}$. Введём 
           множество всех векторных наборов $B = \mathbf{c}_i \mathbf{d}^{[i]}$, эквивалентных $A$ и
-          обозначим его $T = [A] = [\mathbf{a}_i \mathbf{b}^{[i]}]$. Таким образом определён
-          \emph{тензор 2-го ранга}.
-    \end{enumerate}
-
-  \item \emph{Диады и базисные диады}. Пусть $A = \mathbf{a}_i \mathbf{b}^{[i]}$. И 
-    $\exists$ не более чем 1 пара ненулевых векторов $\mathbf{a}_i \mathbf{b}^{[i]}$:
+          обозначим его $T = [A] = [\mathbf{a}_i \mathbf{b}^{[i]}]$. \end{enumerate}
+Таким
+          образом определён
+          \emph{тензор второго ранга}.
+    
+  \item \textsc{Диады и базисные диады}. Пусть $A = \mathbf{a}_i
+    \mathbf{b}^{[i]}$, где
+    существует не более чем одна пара ненулевых векторов $\mathbf{a}_i
+    \mathbf{b}^{[i]}$. Положим по определению
     \[
       [\mathbf{a}_1 \mathbf{b}^{[1]} \mathbf{0} \mathbf{0} \dots \mathbf{0} \mathbf{0}] = \mathbf{a}_1 \otimes \mathbf{b}^{[1]}; \quad
       [\mathbf{0} \mathbf{0} \mathbf{a}_2 \mathbf{b}^{[2]} \dots \mathbf{0} \mathbf{0}] = \mathbf{a}_2 \otimes \mathbf{b}^{[2]}; \quad
       [\mathbf{0} \mathbf{0} \mathbf{0} \mathbf{0} \dots \mathbf{a}_1 \mathbf{b}^{[1]}] = \mathbf{a}_n \otimes \mathbf{b}^{[n]};
     \]
 
-    То есть мы научились по любой паре векторов конструировать диаду. Пусть $\mathbf{e}_i$ и
+    Иными словами, мы научились по любой паре векторов конструировать диаду. Пусть $\mathbf{e}_i$ и
     $\mathbf{h}_j$ -- базисы в $\mathcal{L}_n$. Первый выберем в качестве левых векторов, а
-    второй -- правых. Набор $[\mathbf{e}_1 \mathbf{0} \mathbf{e}_2 \mathbf{0} \dots \mathbf{e}_i \mathbf{h}_j \dots \mathbf{e}_n \mathbf{0}] = \mathbf{e}_i \otimes \mathbf{h}_j$ -- базисная диада. (вместо всех $\mathbf{e}_k, k\neq i$ ожно было поставить нули). 
+    второй --- правых. Набор $[\mathbf{e}_1 \mathbf{0} \mathbf{e}_2 \mathbf{0}
+    \dots \mathbf{e}_i \mathbf{h}_j \dots \mathbf{e}_n \mathbf{0}] =
+    \mathbf{e}_i \otimes \mathbf{h}_j$ --- базисная диада. (Вместо всех
+    $\mathbf{e}_k, k\neq i$ можно было поставить нули.) 
 
-  \item диадный базис. % TODO чото тут // Вроде дописал (Сеня)
-  
+  \item \textsc{Диадный базис.} % TODO чото тут // Вроде дописал (Сеня)
   	\begin{equation*}
-  		\mathbf{h}_j = \mathbf{e}_j \longrightarrow \mathbf{e}_i \otimes \mathbf{e}_j
+  		\mathbf{h}_j = \mathbf{e}_j \longrightarrow \mathbf{e}_i \otimes
+      \mathbf{e}_j.
   	\end{equation*}
   
     \begin{theorem}
-      $\forall T = [\mathbf{a}_i \mathbf{b}^{[i]}]$ можно представить в виде: 
+      Любой тензор второго ранга $ T = [\mathbf{a}_i \mathbf{b}^{[i]}]$ можно представить в виде
       \begin{equation}\label{lec_2:eq:tensor_basis}
-        T = T^{ij} \mathbf{e}_i \otimes \mathbf{e}_j,
+        T = T^{ij} \mathbf{e}_i \otimes \mathbf{e}_j
       \end{equation}
-      линейная комбинация базисных диад.
-
-      Причем:
+      линейной комбинации базисных диад, причём
       \[
         T = (T^{ij} \mathbf{e}_i) \otimes \mathbf{e}_j
         = [\mathbf{a}^{[j]} \mathbf{e}_j]
-        = [\mathbf{e}_i \mathbf{b}^{[j]}]
+        = [\mathbf{e}_i \mathbf{b}^{[j]}].
       \]
     \end{theorem}
-    \begin{theorem}[Следствие]
-      Множество всех тензоров образует линейное пространство, где сложение векторов:
-      \begin{multline*}
-        T_1 = [\mathbf{a}_i \mathbf{b}^{[i]}],
-        T_2 = [\mathbf{c}_j \mathbf{d}^{[j]}]; \quad
-        \mathbf{a}_i = a^j_i \mathbf{e}_j,
-        \mathbf{b}^{[i]} = b^{ik} \mathbf{e}_k,
-        \mathbf{c}_i = c^{j}_{i} \mathbf{e}_j, 
-        \mathbf{d}^{[i]} = d^{ik} \mathbf{e}_k, \quad \\
-        T_1 = [(a^i \mathbf{e}_i) (b^{[ik]} \mathbf{e}_k)] = a^j_i 
+    \begin{corollary*}
+      Множество всех тензоров (второго ранга) образует линейное пространство,
+      где сложение векторов подчиняется правилам
+      \begin{gather*}
+        T_1 = [\mathbf{a}_i \mathbf{b}^{[i]}], \quad
+        T_2 = [\mathbf{c}_j \mathbf{d}^{[j]}]; \\
+        \mathbf{a}_i = a^j_i \mathbf{e}_j, \quad
+        \mathbf{b}^{[i]} = b^{ik} \mathbf{e}_k,\quad
+        \mathbf{c}_i = c^{j}_{i} \mathbf{e}_j, \quad
+        \mathbf{d}^{[i]} = d^{ik} \mathbf{e}_k,  \\
+        T_1 = [(a^i \mathbf{e}_i) (b^{[ik]} \mathbf{e}_k)] = a^j_i, \quad
         T_1 + T_2 = (a^j_i b^{ik} + c^{j}_i d^{jk}_i) \mathbf{e}_j \otimes \mathbf{e}_k
         = (T_1^{ij} + T_2^{ij}) \mathbf{e}_i \otimes \mathbf{e}_j.
-      \end{multline*}
+      \end{gather*}
       А базисные диады образуют базис в тензорном пространстве.
-    \end{theorem}
+    \end{corollary*}
   \end{enumerate}
 \end{definition}
+\renewcommand{\thedefinition}{\arabic{definition}}
 
 Далее можно работать только с формулой \eqref{lec_2:eq:tensor_basis}.
 
@@ -249,7 +278,7 @@ $\mathbf{a} \in \mathcal{L}_n, \mathbf{e}_i, \mathbf{e}_i' \in \mathcal{L}_n$.
 \]
 -- тоже тензор 2-го ранга.
 
-Двойное скалярное произведение:
+Двойное скалярное произведение определяется выражением
 \[
   T \cdot \cdot B = T^{ij} g_{jk} B^{kl} g_{il}
 \]
