@@ -1,0 +1,353 @@
+\begin{remark}
+  \begin{enumerate}
+
+    \item В этой аксиоме введено понятие силы $\mathcal{\mathbf{F}}$, которое не может 
+      быть определено через какие-либо введенные ранее понятия.
+
+    \item <<О первом законе Ньютона>>. Инерциальные системы отсчета. В 
+      аксиоме 2 о евклидовости пространства $\mathbb{E}_3^a$ предполагается, что
+      всегда можно ввести единую (единую для всех тел и для любого момента времени)
+      декартовую ортонормированную систему координат. Получается, что
+      первая часть закона Ньютона содержится в аксиоме евклидовости.
+      Вторая часть первого закона Ньютона содержиться в аксиоме 5.
+
+      Фактически, второй закон Ньютона -- частный случай \eqref{axiom-5}.
+      Абсолютно твёрдое тело -- такая сплошная среда, для которой рассмотренный
+      закон для любой точки в любой момент времени ???
+      Если рассмотреть абсолютно твёрдое тело, то 
+      \[
+        \mathbf{v} = \mathbf{v}(t) \forall X^j \in V_X
+      \]
+      -- одинаковая скорость любой точки тела (не рассматривается вращение).
+      Тогда $\mathbf{I} = M \cdot \mathbf{v}$, а, следовательно, \eqref{axiom-5}
+      принимает вид:
+      \[
+        \dfrac{d\mathbf{I}}{dt} = M \dfrac{d\mathbf{v}}{dt} = \mathbf{\mathcal{F}}.
+      \]
+      Тогда обозначая ускорение $\mathbf{a} = \dfrac{d\mathbf{v}}{dt}$, 
+      получаем классический второй закон Ньютона
+      $M\mathbf{a} = \mathbf{\mathcal{F}}$.
+
+    \item <<О неинерциальных системах отсчёта>>. Существуют разные системы 
+      отсчёта, в том числе подвижные. В таких системах отсчёта законы меняются.
+      Отсюда следует, что уравнение \eqref{axiom-5} -- необъективно, то есть зависит
+      от системы отсчета (закон сохранения массы, к примеру, не зависел от
+      системы отсчёта). Причём указанная аксиома никак не говорит о том, какой
+      именно базис является инерциальным. Оказывается, что данная проблема 
+      не решаема. В каждой задаче необязательно учитывать все эти неинерциальности,
+      например, в случае расчёта машины не обязательно учитывать вращение Земли.
+      % TODO рисунок базисы чото туда сюда
+      % TODO рисунок машинки
+  \end{enumerate}
+\end{remark}
+
+\subsection{Силы в МСС}
+
+Разделим силы на внешние и внутренние. Про внешние силы вроде понятно, но что
+такое внутренние? Рассмотрим некоторое тело. Разделим его
+мысленно на части, каждая из частей действует на другую с некоторой силой.
+Эти силы и назовём внутренними.
+
+Также силы деляться на массовые и поверхностные.
+
+Перечислим основные силы:
+\begin{itemize}
+  \item Массовые силы:
+    Внешние:
+    \begin{itemize}
+      \item гравитационные силы;
+      \item силы 
+      \item электромагнитные силы;
+    \end{itemize}
+    Внутренние:
+    \begin{itemize}
+      \item силы инерции;
+    \end{itemize}
+
+  \item Поверхностные силы:
+    \begin{itemize}
+      \item силы трения -- внешние;
+      \item <<силы упругости>> -- внутренние.
+    \end{itemize}
+\end{itemize}
+
+Рассмотрим отдельно массовые и поверхностные силы.
+
+\paragraph{Массовые силы (внешние)}
+Разобьём тело на континуальное множество областей.
+Для тела в актуальной конфигурации и точки $M$ с некоторой окрестностью $dV$ массы
+$dm$. Согласно аксиоме 5, существует сила взаимодействия $dV$ с \emph{внешностью}, 
+по отношению ко всему телу, обозначим эту силу $\mathbf{dF}_m$ -- внешняя массовая сила.
+
+Введём новое понятие $\mathbf{f} = \dfrac{\mathbf{dF}_m}{dm}, dm > 0$ -- 
+\emph{вектор плотности массовых сил}.
+
+Для внешних массовых сил суммарный вектор внешних массовых сил:
+\[
+  \mathbf{\mathcal{F}}_m = \int\limits_V d\mathbf{\mathcal{F}}_m
+  = \int\limits_V \rho \mathbf{f} \, dV.
+\]
+
+\paragraph{Поверхностные силы (внешние)}
+Поверхность тела в актуальной конфигурации обозначим $\Sigma$. Для точки $M \in \Sigma$
+выберем некоторую площадку $d\Sigma$. На часть объёма $d\tilde{V} = dV \bigcap V$
+действует некоторая сила $d\mathbf{F}_\Sigma$ -- \emph{внешняя поверхностная сила}.
+Для неё введём вектор $\mathbf{s} = \dfrac{d\mathbf{F}_\Sigma}{d\Sigma}$
+-- \emph{вектор плотности поверхностных сил}.
+
+Тогда в силу аддитивности сил можно сказать, что вектор суммарных внешних
+поверхностных сил, действующих на поверхность тела $V$: (так как
+$\Sigma = \int_\Sigma d\Sigma$)
+\[
+  \mathbf{\mathcal{F}} = \int\limits_\Sigma d\mathbf{\mathcal{F}}_\Sigma 
+  = \int\limits_\Sigma \mathbf{s}' d\Sigma.
+\]
+
+Суммарная внешняя сила, действующая на тело $V$ со стороны окружающих его тел:
+\[
+  \mathbf{\mathcal{F}} = \mathbf{\mathcal{F}}_m + \mathbf{\mathcal{F}}_\Sigma.
+\]
+
+
+\subsection{Интегральная формулировка закона изменения количества движения}
+Подставим полученное в \eqref{axiom-5}:
+\begin{equation}\label{integral-form-I}
+  \dfrac{d}{dt} \int\limits_V \rho \mathbf{v} dV =
+  \int\limits_V \rho \mathbf{f} \, dV + \int\limits_\Sigma \mathbf{s} \, d\Sigma.
+\end{equation}
+
+Красота заключается в том, что законы сохранения имеют одинаковый вид, для
+сравнения:
+\[
+  \dfrac{d}{dt} \int\limits_V \rho \, dV = 0.
+\]
+
+Используем правило дифференцирования интеграла по подвижному объёму. Для этого 
+приведём без доказательства следующую формулу:
+
+Упражение: доказать:
+\[
+  \dfrac{d}{dt} \int\limits_{V(t)} \rho \mathbf{a} \, dV =
+  \int\limits_{V(t)} \dfrac{d\mathbf{a}}{dt} \, dV
+\]
+
+Тогда:
+\begin{align*}
+  &\int\limits_V \rho \dfrac{d\mathbf{v}}{dt} \, dV = \int\limits_V \rho \mathbf{f} \, dV
+  + \int\limits_\Sigma \mathbf{s} \, d\Sigma, \\
+  &\int\limits_V \rho \left( \mathbf{f} - \dfrac{d\mathbf{v}}{dt} \right) \, dV
+  + \int\limits_\Sigma \mathbf{s} \, d\Sigma = 0.
+\end{align*}
+-- \emph{уравнение равновесия всех сил, действующих на тело}, где 
+$\mathbf{\mathcal{F}}^{(i)}_{m} = - \int\limits_V \rho \dfrac{d\mathbf{v}}{dt} \, dV$
+-- внутренняя массовая сила.
+
+
+
+\subsection{Внутренние поверхностные силы}
+
+Рассмотрим сплошную среду $V$. Разделим её на две части $V_1, V_2$. Выберем
+произвольную точку $M \in \Sigma_0 \bigcap V$. Введем области $V_1$ и $V_2$
+и вектор нормали $\mathbf{n}$, внешний по отношению к $V_2$. $\mathbf{n}$
+отнесём в точку $M$ с площадкой $d\Sigma$.
+% TODO рисунок
+Тогда область $V_1$ действует на $V_2$ с силой $d\mathbf{\mathcal{F}}_2$, и
+наоборот $V_2$ на $V_1$ с силой $d\mathbf{\mathcal{F}}_1$. Поскольку появление
+этих сил связано с разбиением тел некоторой поверхностью, то эти силы будем
+считать поверхностными, а не массовыми. Тогда можно ввести плостности этих
+поверхностных сил $\mathbf{s}$: $\mathbf{s}_1 = \dfrac{d\mathbf{\mathcal{F}}_1}{d\Sigma}, \mathbf{s}_2 = \dfrac{d\mathbf{\mathcal{F}_2}}{d\Sigma}$.
+
+Рассмотрим $\mathbf{t}_n = \dfrac{d\mathbf{\mathcal{F}}_1}{d\Sigma}$ и
+$\mathbf{t}_{-n} = \dfrac{d\mathbf{\mathcal{F}}}{d\Sigma}$.
+Их можно трактовать так: через данную точку можно провести некоторую поверхность
+разделения тела, и вдоль элементарной площадки вокруг точки $M$ будут появляться
+силы, а значит и $\mathbf{t}_n$ и $\mathbf{t}_{-n}$ -- \emph{векторы напряжений}.
+
+
+\subsection{Первая теорема Коши}
+
+\begin{theorem}[Коши, 1]
+  Если $\mathbf{t}_n$ определена для поверхности $\Sigma$, не являющейся 
+  поверхностью разрыва, то:
+  \[
+    \mathbf{t}_n = - \mathbf{t}_{-n}.
+  \]
+
+  Даже если поверхность $\Sigma$ сама гладкая, то это не значит, что решение
+  будет само непрерывным (поверхности со скачками называем поверхностями
+  разрыва).
+\end{theorem}
+\begin{proof}
+  Рассмотрим область $V$ и разобьём её на две части $V_1$ и $V_2$ с помощью 
+  поверхности $\Sigma$. И применим к $V_1$ и $V_2$ закон об изменении 
+  количества движения в интегральной форме \eqref{integral-form-I}:
+  \[
+    \begin{cases}
+      \int\limits_{V_1} {\rho \left(\mathbf{f} - \dfrac{d\mathbf{v}}{dt}\right) \, dV}
+      + \int\limits_{\Sigma_1} \mathbf{s} \, d\Sigma
+      + \int\limits_{\Sigma_0} \mathbf{t}_n \, d\Sigma = 0, \\
+
+      \int\limits_{V_2} \rho \left(\mathbf{f} - \dfrac{d\mathbf{v}}{dt}\right) \, dV
+      + \int\limits_{\Sigma_2} \mathbf{s} \, d\Sigma
+      + \int\limits_{\Sigma_0} \mathbf{t}_{-n} \, d\Sigma = 0, \\
+
+      \int\limits_{V_1 \bigcup V_2} \rho \left(\mathbf{f} - \dfrac{d\mathbf{v}}{dt}\right) \, dV
+      + \int\limits_{\Sigma_1 \bigcup \Sigma_2} \mathbf{s} \, d\Sigma = 0
+    \end{cases}
+    \Rightarrow
+    \int\limits_{\Sigma_0} (\mathbf{t}_n + \mathbf{t}_{-n}) d\Sigma &= 0.
+  \]
+
+  Поскольку $\Sigma_0$ -- произвольная, то её можно заменить на $d\Sigma_0$, 
+  или по-другому, можно сказать, что в силу произвольности, 
+  равенство нулю интеграла означает равенство нулю подинтегральной функции:
+  \[
+    \mathbf{t}_n + \mathbf{t}_{-n} = 0.
+  \]
+
+  Неявно использовали условие о гладкости $\mathbf{t}_n$.
+\end{proof}
+
+
+\subsection{Вторая теорема Коши}
+
+Рассмотрим элементарный объём $dV$ в виде тетраэдра, который построен на
+элементарных векторах $d\mathbf{x}_\alpha = \mathbf{r}_\alpha \cdot dX^\alpha$
+(суммирования нет). У тетраэдра 4 грани, 3 из них назовём \emph{координатными}
+-- $d\Sigma_\alpha, \alpha=1, 2, 3$, а оставшуюся \emph{наклонной} $d\Sigma_0$.
+Определим вектора нормалей на этих гранях
+$\mathbf{n}_\alpha = - \dfrac{\mathbf{r}^\alpha}{|\mathbf{r}^\alpha|}$ 
+(т.к. $\mathbf{r}_\alpha \cdot \mathbf{r}^\beta = \delta^\beta_\alpha
+\Rightarrow \mathbf{r}_\alpha \times \mathbf{r}_\beta = \sqrt{g} r^\gamma$).
+А к $d\Sigma_0$ -- $\mathbf{n}$.
+
+Рассмотрим следующее соотношение для 
+любой поверхности $\Sigma$, ограничивающей замкнутую область:
+\[
+  \int\limits_\Sigma \mathbf{n} d\Sigma
+  = \int\limits_\Sigma \mathbf{n} \cdot E \, d\Sigma
+  = \int\limits_V \nabla \cdot E \, dV
+  = 0,
+\]
+(использована формула Гаусса-Остроградского, а значит предполагается гладкость 
+поверхности $\Sigma$).
+
+Применим эту формулу к тетраэдру:
+\[
+  \int\limits_V \mathbf{n} \, d\Sigma
+  = \sum_{\alpha=1}^3 \mathbf{n}_\alpha d\Sigma_\alpha + \mathbf{n} d\Sigma_0
+  = 0.
+\]
+
+Подставим выражения для нормалей:
+\begin{align*}
+  \mathbf{n} d\Sigma_0
+  &= \sum_{\alpha=1}^3 \dfrac{\mathbf{r}^\alpha}{|\mathbf{r}^\alpha|} d\Sigma_\alpha \\
+  \mathbf{n} \cdot \mathbf{r}_\beta
+  &= \sum_{\alpha=1}^3 \dfrac{\mathbf{r}^\alpha\cdot\mathbf{r}_\beta}{|\mathbf{r}^\alpha|} d\Sigma_\alpha
+  = \dfrac{d\Sigma_\beta}{|\mathbf{r}^\beta|} \\
+  d\Sigma_\beta = |\mathbf{r}^\beta| \mathbf{n} \cdot \mathbf{r} d\Sigma_0.
+\end{align*}
+
+Применим к тетраэдру закон об изменении количества движения в форме
+\eqref{integral-form-I}:
+\[
+  \int\limits_\Sigma \mathbf{t}_n \, d\Sigma
+  = \int\limits_V \rho \left( \dfrac{d\mathbf{v}}{dt} - \mathbf{f} \right) \, dV
+\]
+Введём обозначение: на каждую площадку $d\Sigma_\alpha$ и $d\Sigma_0$
+действуют силы $d\mathbf{\mathcal{F}}_\alpha$ и $d\mathbf{\mathcal{F}}_0$.
+Тогда на наклонной площадке с нормалью $\mathbf{n}$ можно ввести 
+$\mathbf{t}_n = \dfrac{d\mathbf{\mathcal{F}}_0}{d\Sigma_0}$. Для остальных
+площадок $\mathbf{t}_\alpha = \dfrac{d\mathbf{\mathcal{F}}_\alpha}{d\Sigma_\alpha}$.
+
+\begin{align*}
+  \mathbf{t}_n d\Sigma_0 + \sum_{\alpha=1}^3 \mathbf{t}_\alpha d\Sigma_\alpha
+  &= \rho \left( \dfrac{d\mathbf{v}}{dt} - \mathbf{f} \right) \, dV \\
+  \mathbf{t}_n d\Sigma_0
+  + \sum_{\alpha=1}^3 \mathbf{t}_\alpha (\mathbf{n} \cdot \mathbf{r}_\alpha) |\mathbf{r}^\alpha| d\Sigma_0 &= \rho \left( \dfrac{d\mathbf{v}}{dt} - \mathbf{f} \right) \, dV \\
+  \mathbf{t}_n - \sum_{\alpha=1}^3 \mathbf{t}_\alpha (\mathbf{n} \cdot \mathbf{r}_\alpha) |\mathbf{r}^\alpha| &= \rho \left( \dfrac{d\mathbf{v}}{dt} - \mathbf{f} \right) \dfrac{dV}{d\Sigma_0}
+\end{align*}
+Совершим предельный переход, стягивая $dV$ в точку, тогда
+$h=\max_\alpha \left\{ h_\alpha \right\} , d\Sigma_0 = O(h^2);
+dV = O(h^3) \Rightarrow \dfrac{dV}{d\Sigma_0} = O(h)$. Тогда получается, что
+правая часть -- бесконечно малая по сравнению с левой:
+\[
+  \mathbf{t}_n = \sum_{\alpha=1}^3 (\mathbf{n} \cdot \mathbf{r}_\alpha) |\mathbf{r}^\alpha| \mathbf{t}_\alpha.
+\]
+так как $|\mathbf{r}^\alpha| = \sqrt{g^{\alpha\alpha}}$, то введём обозначение:
+$\mathbf{t}^\alpha \equiv \mathbf{t}_\alpha \sqrt{g^{\alpha\alpha}}$. Тогда
+\begin{align*}
+  \mathbf{t}_n
+  &= \sum_{\alpha=1}^3 (\mathbf{n} \cdot \mathbf{r}_\alpha) \mathbf{t}^\alpha, \\
+  \mathbf{t}_n
+  &= \mathbf{n} \sum_{\alpha=1}^3 \mathbf{r}_\alpha \otimes \mathbf{t}^\alpha.
+\end{align*}
+
+Тензор $T = \sum_{\alpha=1}^3 \mathbf{r}_\alpha \otimes \mathbf{t}^\alpha
+= \mathbf{r}_i \otimes \mathbf{t}^i$ называется \emph{тензором истинных
+деформаций Коши}.
+
+Тогда $\mathbf{t}_n = \mathbf{n} \cdot T$ -- \emph{формула Коши}.
+
+\begin{remark}
+  Ранее мы ввели тензор градиента деформации:
+  $F = \mathbf{r}_i \otimes \mathring{\mathbf{r}}^i$: $\mathbf{r}_i = F \cdot \mathring{\mathbf{r}}_i$.
+  Теперь мы получили тензор истинных деформаций Коши:
+  $T = \mathbf{r}_i \otimes \mathbf{t}^i$: $\mathbf{t}_n = T^T \cdot \mathbf{n}$.
+\end{remark}
+
+\begin{remark}
+  Для тела $V$ и произвольной точки $M$ и проходящей через эту точку площадки
+  $d\Sigma$ (для каждой площадки будет свой вектор напряжений $\mathbf{t}_n$),
+  но существует такой тензор, что можно узнать любое такое напряжение 
+  с помощью действия этого тензора на $\mathbf{n}$.
+\end{remark}
+
+\begin{remark}
+  Тензор напряжений $T$ введён в актуальной конфигурации. Для него имеет место
+  формула:
+  \[
+    d\mathbf{\mathcal{F}} = \mathbf{t}_n d\Sigma = \mathbf{n} \cdot T d\Sigma.
+  \]
+\end{remark}
+
+\subsection{Тензор напряжений Теолы-Кирхгофа}
+
+Рассмотрим $\mathring{\mathbf{t}} = \dfrac{d\mathbf{\mathcal{F}}}{d\Sigma_0}$.
+\[
+  d\mathbf{\mathcal{F}} = \mathring{\mathbf{t}}_n d\Sigma_0
+  = \mathbf{n} \cdot T d\Sigma = T^T \cdot \mathbf{n} d\Sigma,
+\]
+но $\mathbf{n} d\Sigma
+= \sqrt{g/\mathring{g}} F^{-1T} \mathring{\mathbf{n}} d\mathring{\Sigma}$, 
+тогда
+\[
+  d\mathbf{\mathcal{F}}
+  = \sqrt{\dfrac{g}{\mathring{g}}} T^T \cdot F^{-1T} \cdot \mathbf{n} d\Sigma
+\]
+
+\[
+  \mathbf{t}_n
+  = \sqrt{\dfrac{g}{\mathring{g}}} \left( F^{-1} \cdot T \right)^T \mathring{\mathbf{n}}
+\]
+
+\[
+  \mathring{\mathbf{t}}_n = \mathbf{\mathring{n}} \cdot \sqrt{\dfrac{g}{\mathring{g}}} F^{-1} T
+\]
+
+Введем тензор Теолы-Кирхгофа: $P=\sqrt{\dfrac{g}{\mathring{g}}} F^{-1} T$:
+\[
+  \begin{cases}
+    \mathring{\mathbf{t}}_n = \mathring{\mathbf{n}} \cdot P, \\
+    \mathbf{t}_n = \mathbf{n} \cdot T.
+  \end{cases}
+\]
+
+\[
+  \begin{cases}
+    d\mathbf{F} = \mathbf{t}_n d\Sigma = \mathbf{n} \cdot T d\Sigma, \\
+    d\mathbf{F} = \mathring{t}_n d\mathring{\Sigma} = \mathring{\mathbf{n}} \cdot P d\mathring{\Sigma}
+  \end{cases}
+  
+\]
