@@ -1,0 +1,341 @@
+\subsection{Физический смысл компонент тензора напряжений Коши}
+
+\paragraph{Физический смысл самого тензора Коши}
+Тензор напряжений Коши $T$ вводится в актуальной конфигурации $\mathcal{K}$.
+Какую бы площадку $d\Sigma$ мы не взяли в теле вокруг некоторой точки
+-- на неё всегда действует сила ($d\mathcal{F}$) -- внутренняя поверхностная сила. 
+Построим объект $\mathbf{t}_n = \dfrac{d\mathcal{F}}{d\Sigma}$ -- вектор напряжений.
+Теорема №2 Коши говорит о том, что $\mathbf{t}_n = \mathbf{n}\cdot T$,
+где тензор $T$ -- тензор напряжений Коши $T = \mathbf{r}_i \otimes \mathbf{t}^i$.
+
+\paragraph{Физический смысл компонент}
+Рассмотрим базис $\mathbf{r}_i$, по нему образуем базис $\hat{\mathbf{r}}_i$ --
+процессом ортогонализации и ортонормирования. Тогда $T$ можно представить в этом
+базисе $T = T^{ij} \mathbf{r}_i \otimes \mathbf{r}_j
+= \hat{T}^{ij} \hat{\mathbf{r}}_i \otimes \hat{\mathbf{r}}_j$.
+
+Для раскрытия физического смысла, рассмотрим элементарный объём $dV$ в форме куба,
+рёбра которого ориентированы по $\hat{\mathbf{r}}_\alpha$. Тогда на каждой
+грани $d\Sigma_\alpha$ ($d\Sigma_\alpha$ -- грань, ортогональная ребру $\hat{\mathbf{r}}_\alpha$)
+этого куба действует внутренняя поверхностная сила $d\mathbf{\mathcal{F}}_\alpha$.
+Тогда можно ввести вектор напряжений $\mathbf{t}_\alpha$ на $d\Sigma_\alpha$:
+$\mathbf{t}_\alpha = \dfrac{d\mathbf{\mathcal{F}}_\alpha}{d\Sigma_\alpha}$.
+По формуле Коши, $\mathbf{t}_\alpha = \mathbf{n}_\alpha \cdot T$, тогда:
+$\dfrac{d\mathbf{\mathcal{F}}_\alpha}{d\Sigma_\alpha} = \mathbf{n}_\alpha \cdot T$.
+
+Запишем это соотношение в базисе $\hat{\mathbf{r}}_\alpha$:
+$d\mathbf{\mathcal{F}}_\alpha = d\hat{\mathbf{\mathcal{F}}}^i_\alpha \cdot\hat{\mathbf{r}}_i, \mathbf{n}_\alpha = \hat{\mathbf{n}}^i_\alpha \cdot \hat{\mathbf{r}}_i$.
+
+Тогда:
+\[
+  \dfrac{d\hat{\mathbf{\mathcal{F}}}^i_\alpha \hat{\mathbf{r}}_i }{d\Sigma_\alpha}
+= \mathbf{n}^i_\alpha \cdot \hat{\mathbf{r}}_i \cdot \hat{T}^{kj} \hat{\mathbf{r}}_j \otimes \hat{\mathbf{r}}_j.
+\]
+\[
+  \dfrac{d\hat{\mathbf{\mathcal{F}}}^i_\alpha \hat{\mathbf{r}}_i }{d\Sigma_\alpha}
+  = \hat{\mathbf{n}}^i_\alpha ^{kj} \delta_{ik} \hat{\mathbf{r}}_j
+\]
+\[
+  \dfrac{d\hat{\mathbf{\mathcal{F}}}^j_\alpha \hat{\mathbf{r}}_i }{d\Sigma_\alpha}
+  = \hat{\mathbf{n}}_{k\alpha} \hat{T}^{kj}
+\]
+-- выражение компонент тензора деформаций в данном базисе.
+Так как $dV$ -- куб, ориентированный вдоль базиса $\hat{\mathbf{r}}_\alpha$,
+поэтому компоненты нормалей $\hat{\mathbf{n}}_{k\alpha} = \delta_{k\alpha}$.
+\[
+  \delta_{k\alpha} \hat{T}^{kj} = \dfrac{d\mathbf{\mathcal{F}}^j_\alpha}{d\Sigma_\alpha}
+\]
+\[
+  \hat{T}^{\alpha j} = \dfrac{d\mathbf{\mathcal{F}}^j_\alpha}{d\Sigma_\alpha}
+\]
+
+Рассмотрим отдельно диагональные компоненты:
+\[
+  \hat{T}^{\alpha \alpha} = \dfrac{d\mathbf{\mathcal{F}}^\alpha_\alpha}{d\Sigma_\alpha}
+\]
+$d\mathbf{\mathcal{F}}^\alpha_\alpha$ -- проекции на нормаль к грани $d\Sigma_\alpha$
+-- $\mathbf{n}_\alpha$, поэтому $\hat{T}^{\alpha\alpha}$ -- \emph{нормальные напряжения}
+-- проекция силы на нормаль, делённая на площадь площадки, перпендикулярной 
+к этой нормали.
+
+% TODO рисунок-иллюстрация, поясняющая почему это проекции и какие именно это
+% проекции
+
+Рассмотрим теперь $\hat{T}^{\alpha\beta} = \dfrac{d\hat{\mathbf{\mathcal{F}}}^\beta_\alpha}{d\Sigma_\alpha}$.
+\[
+  \begin{cases}
+    \hat{T}^{\alpha\beta} = \dfrac{d\hat{\mathbf{\mathcal{F}}}^{\beta_\alpha}}{d\Sigma_\alpha},\\
+    \hat{T}^{\alpha\gamma} = \dfrac{dd\hat{\mathbf{\mathcal{F}}}^{\gamma}_\alpha}{d\Sigma_\alpha}.
+  \end{cases}
+\]
+-- касательные напряжения.
+
+Всего для такого кубика получилось
+3 нормальных напряжения (на каждую площадку) и 6 касательных напряжений (по две
+на каждую площадку). На данном этапе. ничего не известно про симметрию (к сожалению).
+В общем случае тензор $T$ -- не симметричен.
+
+\paragraph{Размерность}
+Рекомендация: почитайте второй том МСС, если интересуетесь размерностями.
+Вообще есть 4 размерности: секунды, метры, килограммы, кельвины -- почемы их 4?
+Оказывается, что их 4, потому что они все следуют из математики! То есть
+оказывается, что есть ровно 4 масштабных коэффициента, которые допускают 
+масштабирование системы координат. Оказывается, что всех размерностей 
+в электродинамике не существует, они все выводятся из механических размерностей.
+(правда все они в дробных степенях, чего другие обычные механические размерности
+никогда не делают)
+
+Понятие размерности относят только к скалярам и компонентам векторов, но не к тензорам.
+Те размерности величин компонент векторов и тензоров обычно рассматриваются в 
+ортонормированном базисе.
+
+У компонент тензора напряжения Коши в декартовом ортонормированном базисе:
+\[
+  \left[ \hat{T}^{\alpha\beta} \right] = \dfrac{\text{Н}}{\text{м}^2} = \text{Па}.
+\]
+Также часто используется $\text{кгс} / \text{мм}^2 = \dots$.
+
+
+\subsection{Физический смысл компонент тензора напряжений Пиолы-Кирхгофа}
+
+Напомним, что данный тензор вводиться для некоторой площадки $d\mathring{\Sigma}$
+в отсчётной конфигурации, которая переходит в $d\Sigma$. Тогда:
+$\mathbf{n} \cdot T d\Sigma = \mathbf{t}_n \cdot d\Sigma =
+d\mathbf{\mathcal{F}}
+= \mathring{\mathbf{t}}_n d\mathring{\Sigma} = \mathring{\mathbf{n}} \cdot P \cdot d\mathring{\Sigma},$
+где тензор $P = \sqrt{\dfrac{g}{\mathring{g}}} F^{-1} \cdot T$ -- тензор Пиолы-Кирхгофа.
+
+Рассмотрим в $\mathring{\mathcal{K}}$ элементарный объем в виде куба, 
+ориентированного по векторам базиса $\hat{\mathring{\mathbf{r}}}_\alpha$ --
+ортонормированный базис, в актуальной конфигурации этот объём перейдет в
+параллелограм образованный векторами $\mathbf{r}_\alpha$.
+На каждую грань $d\Sigma_\alpha$ этого параллелограма действует сила
+$d\mathbf{\mathcal{F}}_\alpha$, тогда:
+$\mathring{\mathbf{n}}_\alpha \cdot P = \dfrac{d\mathbf{\mathcal{F}}}{d\mathring{\Sigma}_\alpha}$.
+Запишем $\mathring{\mathbf{n}}_\alpha$, $P$, $d\mathbf{\mathcal{F}}$ в базисе
+$\hat{\mathring{\mathbf{r}}_\alpha}$:
+\[
+  \mathring{n}_\alpha = \hat{\mathring{n}}^i_\alpha \cdot \mathring{\mathbf{r}}_i
+  \quad
+  \dots
+  \quad
+  \dots
+  \quad
+  d\mathbf{\mathcal{F}}_\alpha = d\hat{\mathbf{\mathcal{F}}}^i_\alpha \cdot \hat{\mathbf{r}}_i
+\]
+% TODO дописать
+
+\[
+  \hat{\mathring{n}}_{\alpha k} \cdot \hat{\mathring{P}}^{kj} = \dfrac{d\hat{\mathring{\mathcal{F}}}^i_\alpha}{d\mathring{\Sigma}_\alpha}.
+\]
+
+Так как $d\mathring{V}$ -- куб, то $\mathring{n}_{\alpha k } = \delta_{\alpha k}$,
+поэтому:
+\[
+  \hat{\mathring{P}}^{\alpha k} = \dfrac{d\hat{\mathring{\mathcal{F}}}^i_\alpha}{d\mathring{\Sigma}_\alpha}.
+\]
+
+Аналогично тому, как мы рассматривали тензор Коши, рассмотрим сначала диагональные
+элементы:
+\[
+  \hat{\mathring{P}}^{\alpha\alpha} = \dfrac{d\hat{\mathring{F}}^{\alpha}_\alpha}{d\mathring{\Sigma}_\alpha}
+\]
+-- $d\hat{\mathring{\mathcal{F}}}^\alpha_\alpha$ -- взяли прообраз вектора силы
+$d\mathbf{\mathcal{F}}_\alpha$ в отсчетной конфигурации, и его спроецировали на 
+нормаль к прообразу площадки, на которую он действует, поэтому диагональные
+компоненты называются нормальными напряжениями.
+
+Аналогично получаем, что 
+\[
+  \begin{cases}
+    \hat{\mathring{P}}^{\alpha\beta} = \dfrac{d\hat{\mathring{F}}^\beta_\alpha}{d\mathring{\Sigma}_\alpha}, \\
+    \hat{\mathring{P}}^{\alpha\gamma} = \dfrac{d\hat{\mathring{F}}^\gamma_\alpha}{d\mathring{\Sigma}_\alpha}.
+  \end{cases}
+\]
+-- касательные напряжения.
+
+
+\subsection{Уравнения движения}
+Рассмотрим снова уравнение изменения количества движения в интегральной форме:
+\[
+  \dfrac{d}{dt} \underbrace{\int\limits_V \rho \mathbf{v} dV}_{\equiv I} = 
+  \int\limits_V \rho \mathbf{f} dV + \int\limits_\Sigma \underbrace{\mathbf{t}_n d\Sigma}_{= \int\limits_{\Sigma} d\mathbf{\mathcal{F}}_\Sigma}.
+\]
+Согласно правилу дифференцирования интеграла по подвижному объёму:
+\[
+  \int\limits_V \rho \left( \dfrac{d\mathbf{v}}{dt} - \mathbf{f} \right) dV
+  - \int\limits_\Sigma \mathbf{n} \cdot T d\Sigma = 0,
+\]
+по формуле Гаусса-Остроградского:
+\[
+  \int\limits_V \rho \left( \dfrac{d\mathbf{v}}{dt} - \mathbf{f} \right) dV
+  - \int\limits_V \nabla \cdot T \, dV = 0,
+  \Rightarrow
+  \int\limits_V \left(
+    \rho \left( \dfrac{d\mathbf{v}}{dt} - \mathbf{f} \right)
+  - \nabla \cdot T \right) \, dV = 0,
+\]
+
+Тогда, благодаря произвольности объёма интегрирования,
+\begin{equation}\label{lec_8:eq_dv_euler}
+  \rho \dfrac{d\mathbf{v}}{dt}
+  = \nabla \cdot T + \rho \cdot \mathbf{f}
+\end{equation}
+-- уравнение движения в Эйлеровом описании (в полных дифференциалах).
+
+
+\begin{remark}
+
+  \begin{enumerate}
+    \item Если вдруг тензор напряжений нулевой, или, например, $T \equiv a E, a = const$,
+      т.е. $\nabla \cdot T \equiv 0$, тогда:
+      \[
+        \rho \dfrac{d\mathbf{v}}{dt} + \rho \mathbf{f}.
+      \]
+
+    \item Если вдруг $\mathbf{v} \equiv 0$ (квазистатические задачи), то
+      \[
+        \nabla \cdot T = \rho \mathbf{f} = 0
+      \]
+      --  уравнение равновесия.
+  \end{enumerate}
+\end{remark}
+
+Т.к. $\dfrac{d\mathbf{v}}{dt} = \dfrac{\partial \mathbf{v}}{\partial t} (x^i, t) + \mathbf{v} \cdot \nabla \otimes \mathbf{v}$ -- полная производная по времени в эйлеровом
+описании, то \eqref{lec_8:eq_dv_euler} принимает вид:
+\[
+  \rho \dfrac{\partial \mathbf{v}}{\partial t} + \rho \mathbf{v} \cdot \nabla \otimes \mathbf{v}
+  + \mathbf{v} \cdot
+  \underbrace{\left( \dfrac{\partial \rho}{\partial t} + \nabla \cdot \rho\mathbf{v} \right)}_{=0 \text{ уравнение неразрывности}}
+  = \nabla \cdot T + \rho \mathbf{f}.
+\]
+\[
+  \dfrac{\partial \rho \mathbf{v}}{\partial t} + \nabla \cdot \left( \rho \mathbf{v}\otimes \mathbf{v} \right) = \nabla \cdot T + \rho \mathbf{f}
+\]
+-- дивергентная форма уравнения движения в Эйлеровом описании (такая форма,
+что перед всеми производными коэффициент единица). Эту форму чаще используют в 
+газовой динамике.
+
+\paragraph{Уравнение движения в Лагранжевом (материальном) описании}
+
+Переход от Эйлерова описания к Лагранжеву описанию (и наоборот) осуществляется
+через интегральную форму.
+\[
+  \int\limits_V \rho \mathbf{a} \, dV
+  = \int\limits_V \mathring{\rho} \left( \dfrac{\rho}{\mathring{\rho}} \right) \mathbf{a} \, dV
+  = \int\limits_V \mathring{\rho} \sqrt{\dfrac{g}{\mathring{g}}} \mathbf{a} \, dV
+  = \int\limits_{\mathring{V}} \mathring{\rho} \mathbf{a} \, d\mathring{V}.
+\]
+\[
+  \int\limits_{\mathring{V}} \mathring{\rho} \left( \dfrac{d\mathbf{v}}{dt} -\mathbf{f} \right) \, d\mathring{V} = \int\limits_{\mathring{\Sigma}} \mathbf{n} \cdot P \, d\mathring{\Sigma}.
+\]
+
+% TODO дописать одно уравнение тут
+
+\[
+  \int\limits_{\mathring{V}} \mathring{\rho} \left( \dfrac{d\mathbf{v}}{dt} - \mathbf{f} - \mathring{\nabla} \cdot P \right) \, d\mathring{V} = 0
+\]
+в силу произвольности $\mathring{V}$:
+\[
+  \mathring{\rho} \dfrac{d\mathbf{v}}{dt} = \mathring{\rho} \mathbf{f} + \mathring{\rho} \mathring{\nabla} \cdot P
+\]
+-- уравнение движения в Лагранжевом описании.
+
+
+\subsection{Закон изменения момента количества движения}
+Для импульса мы получили такую аналогию с системами материальных точек:
+\[
+  \dfrac{d}{dt} \sum_i m_i \mathbf{v}_i = \sum_i \mathbf{f}_i
+  \rightarrow
+  \dfrac{d}{dt} \int\limits_V \rho d\mathbf{v} = \int_V \mathbf{f}\, dV + \int_V \mathbf{t}_n \, d\Sigma.
+\]
+
+Для системы точек закон изменения момента количества движения формулируется так:
+$\mathbf{x}_i \times \mathbf{f}_i$ -- момент импульса (момент количества движения).
+\[
+  \dfrac{d}{dt} \sum_{j=1} \mathbf{x}_i \times m_i \mathbf{v}_i = \sum_i \mathbf{x}_i \times \mathbf{f}_i
+\]
+-- уравнение изменения момента количества движения систем точек.
+
+\begin{definition}
+  $\mathbf{k}' \equiv \int\limits_V \mathbf{x} \times \mathbf{v} \, dm$ -- момент
+  количества движения сплошной среды.
+  Преобразуя интеграл, можно получить также:
+  $\mathbf{k}' \equiv \int\limits_V \rho \mathbf{x} \times \mathbf{v} \, dV$.
+\end{definition}
+
+\begin{definition}
+  $\mathbf{\mu}_m' \equiv \int\limits_V \mathbf{x} \times d\mathbf{\mathcal{F}}
+  = \int\limits_V \rho \mathbf{x} \times \mathbf{f} \, dV$
+  -- вектор момента массовых сил.
+
+  $\mathbf{\mu}_\Sigma' \equiv \int\limits_\Sigma \mathbf{x} \times d\mathbf{\mathcal{F}}
+  = \int_\Sigma \mathbf{x} \times \mathbf{t}_n \, d\Sigma$ 
+  -- вектор момента поверхностных сил.
+
+  $\mathbf{\mu}' \equiv \mathbf{\mu}'_m + \mathbf{\mu}'_\Sigma$
+  -- суммарный вектор моментов.
+\end{definition}
+
+\paragraph{Аксиома 6} (Закон изменения момента количества движения).
+Для всякой сплошной среды существуют две аддитивные векторные функции:
+  $\mathbf{k}''$ -- вектор собственного момента количества движения,
+  $\mathbf{\mu}''$ -- вектор собственных моментов,
+которые удовлетворяют следующему уравнению:
+\[
+  \dfrac{d\mathbf{k}}{dt} = \mathbf{\mu},
+\]
+где $\mathbf{k} = \mathbf{k}' + \mathbf{k}''$ -- полный вектор момента количества движения;
+$\mathbf{\mu} = \mathbf{\mu}' + \mathbf{\mu}''$ -- полный вектор моментов.
+
+\[
+  \dfrac{d\mathbf{k}'}{dt} = \mathbf{\mu}'
+\]
+
+
+\subsection{Интегральная формулировка закона изменения момента количества движения СС}
+% TODO кусок лекции
+
+
+
+\begin{definition}
+  $\mathbf{k}_m \equiv \dfrac{d\mathbf{k}''}{dm}$ -- плотность собственного момента количества движения.
+
+  $\mathbf{h}_m \equiv \dfrac{d \mathbf{\mu}''}{dm}$ -- плотность собственного массового момента.
+  
+  $\mathbf{h}_\Sigma \equiv \dfrac{d \mathbf{\mu}''}{d\Sigma}$ -- плотность собственного поверхностного момента.
+\end{definition}
+
+Тогда $\mathbf{k} = \int\limits_V d\mathbf{k}'' = \int\limits_V \rho \, d\mathbf{k}_m$,
+и т.д., и т.п.
+Используем введённые величины для преобразования закона сохранения момента количества движения:
+\[
+  \dfrac{d}{dt}\int\limits_V \underbrace{\left( \mathbf{x}\times\rho\mathbf{v}+\rho\mathbf{k}_m \right)}_{\mathbf{k}' + \mathbf{k}''} \, dV
+  = \int\limits_V \left( \mathbf{x}\times\rho\mathbf{f}+\rho\mathbf{h}_m \right) \, dV
+  + \int\limits_\Sigma \left( \mathbf{x}\times\mathbf{t}_n + \mathbf{h}_\Sigma \right) \, d\Sigma
+\]
+-- интегральная форма закона сохранения момента количества движения сплошных сред.
+
+
+\subsection{Дифференциальная формулировка закона изменения момента количества движения СС}  
+
+\paragraph{Обобщённая теорема Коши}
+Если
+\[
+  \dfrac{d}{dt} \int\limits_V \rho A \, dV 
+  = \int\limits_V \rho C \, dV + \int\limits_\Sigma B_n \, d\Sigma
+\]
+то применяя этот закон к элементарному объёму $dV$ -- тетраэдру и стягивая этот
+тетраэдр $dV \to 0$, то интегралы по $V$ -- $O(h^3)$, а интеграл по $\Sigma$ -- $O(h^2)$,
+следовательно, 
+\[
+  \sum_{\alpha=1}^4 B_{n\alpha} = 0.
+\]
+
+Применяя полученную теорему к ЗСМКД, получаем, что:
+\[
+  \mathbf{h}_\Sigma + \mathbf{x} \times \mathbf{t}_n = \mathbf{n} \cdot \tilde M, \quad
+  \mathbf{t}_n = \mathbf{n} \cdot T.
+\]
+
+Таким образом, согласно обобщенной теореме Коши, $\exists$ тензор $\tilde M$ -- тензор момента напряжения.
