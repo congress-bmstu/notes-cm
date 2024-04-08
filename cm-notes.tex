@@ -28,6 +28,20 @@
 
 \newcommand{\dimus}[1]{\begin{quotation} \emph{#1} \flushright--- Димитриенко Ю.\,И.
  \end{quotation}}
+
+\def\onedot{$\mathsurround0pt\cdotp$}
+\def\cddot{% 
+  \mathbin{\hcenter{
+    \hbox{\onedot}\hbox{\onedot}}%
+  }}%
+\def\cdddot#1{%
+  \mathbin{\vcenter{\baselineskip.67ex
+    \hbox{\onedot}\hbox{\onedot}\hbox{\onedot}%
+  }}%
+}
+
+\def\const{ \mathrm{const} }
+\def\var { \mathrm{var} }
 %\usepackage{showframe}
 
 % \usepackage{accents}
