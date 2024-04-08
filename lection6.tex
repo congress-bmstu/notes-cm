@@ -169,8 +169,6 @@ $\mathbf{v} \cdot \nabla \otimes \mathbf{a}$ -- конвективная про�
 \end{corollary}
 
 \begin{definition}
-  % TODO рисунок
-
   Введём отношение $ \dfrac{dm}{dV} \equiv \rho > 0$ и назовём его \emph{плотностью}
   вещества (согласно принятым обозначениям, $dV$ -- объём области $dV$).
 
@@ -191,7 +189,7 @@ $\mathbf{v} \cdot \nabla \otimes \mathbf{a}$ -- конвективная про�
 \begin{corollary}
   Так как масса тел сохраняется для любых моментов времени, если тела состоят 
   из одних и тех же точек, то для элементарного объёма $d\mathring{V}$ и $dV$
-  масса должна сохраняться: если $d\mathring{V} \to d\mathring{m} \mathring{\rho} d\mathring{V}$
+  масса должна сохраняться: если $d\mathring{V} \to d\mathring{m} = \mathring{\rho} d\mathring{V}$
   и $dV \to dm = \rho dV$, то
   \begin{equation}\label{lec_6:eq_lagrange_1form}
     dm = d\mathring{m} \Leftrightarrow
@@ -199,8 +197,6 @@ $\mathbf{v} \cdot \nabla \otimes \mathbf{a}$ -- конвективная про�
   \end{equation}
   -- закон сохранения массы в дифференциальной форме, или уравнение неразрывности в 
   переменных Лагранжа в форме №1.
-  .
-  % TODO рисунок
 \end{corollary}
 
 
@@ -254,39 +250,39 @@ $\dots$
 \]
 .
 
-Таким образом, всегда можно сказать, что $\int_V \rho \, dV = \int_\mathring{V} \mathring{\rho} \, d\mathring{V}$
+Таким образом, всегда можно сказать, что $\int_V \rho \, dV = \int_{\mathring{V}} \mathring{\rho} \, d\mathring{V}$
 
-Рассмотрим далее следующий интеграл: $\int_{V(t)} \mathbf{a} (x^i, t) \, dV$
-% TODO рисунок ежа
-
-Вычислим $\dfrac{d}{dt} \int_{V(t)} \mathbf{a}(x^i, t) \, dV$. Согласно правилам
-замены переменных от $x^i$ к $\mathring{x}^i$: $x^i = x^i(\mathring{x}^j, t)$
-при фиксированном $t$. Тогда:
-\begin{multline*}
-  \dfrac{d}{dt} \int_{V(t)} \mathbf{a}(x^i, t) \, dV
-  = \dfrac{d}{dt} \int_{\mathring{V}} \mathbf{a}(\mathring{x}^i, t) \det \left( \dfrac{\partial x^i}{\partial \mathring{x}^j}  \right) \, d\mathring{V}
-  = \dfrac{d}{dt} \int_{\mathring{V}} \mathbf{a}(\mathring{x}^i, t) \sqrt{\dfrac{g}{\mathring{g}}} \, d\mathring{V} = \\
-  = \int_{\mathring{V}} \dfrac{d}{dt} \left( \mathbf{a} \sqrt{\dfrac{g}{\mathring{g}}} \right) \, d\mathring{V}
-  = \int_{\mathring{V}} \dfrac{1}{\sqrt{\mathring{g}}} \left( \dfrac{d\mathbf{a}}{dt}\sqrt{g} + \mathbf{a} \dfrac{d\sqrt{g}}{dt} \right) \, d\mathring{V} = 
-\end{multline*}
-Имеет место следующая формула (без доказательства): $\dfrac{d}{dt}\sqrt{g} = \sqrt{g} \, \nabla \cdot \mathbf{v}$.
-Тогда продолжая:
-\begin{multline*}
-  = \int_{\mathring{V}} \dfrac{\sqrt{g}}{\sqrt{\mathring{g}}} \left( \dfrac{d\mathbf{a}}{dt} + \mathbf{a} \cdot \nabla \cdot \mathbf{\mathring{v}} \right) \, d\mathring{V}
-  = \int_{V(t)} \left( \dfrac{d \mathbf{a}}{dt} + \mathbf{a} \nabla \cdot \mathbf{v} \right) \, dV = \\
-  = \int_{V(t)} \left( \left. \dfrac{\partial \mathbf{a}}{\partial t} \right|_{x^i} 
-    + \mathbf{v} \cdot \nabla \otimes \mathbf{a} + \mathbf{a} \nabla \cdot \mathbf{v}\right) dV
-  = \int_{V(t)} \left( \dfrac{\partial \mathbf{a}}{\partial t} + \nabla \cdot \left( \mathbf{v} \otimes \mathbf{a} \right)  \right) dV
-\end{multline*}
-
-Таким образом:
-\[
-  \dfrac{d}{dt} \int_{V(t)} \mathbf{a}(x^i, t) \, dV
-  = \int_{V(t)} \left( \dfrac{\partial \mathbf{a}}{\partial t} + \nabla \cdot \left( \mathbf{v} \otimes \mathbf{a} \right)  \right) dV
-\]
--- формула дифференцирования интеграла по переменному объёму (обобщение формулы
-дифференцирования интеграла с переменным верхним пределом).
-
+\begin{theorem}
+  Для произвольного переменного векторного поля $\mathbf{a} (x^i, t)$, заданного на $V(t)$,
+  $t \geqslant 0$, являющегося непрерывно-дифференцируемой функцией $x^i$ и $t$,
+  имеет место следующее соотношение:
+  \[
+    \dfrac{d}{dt} \int\limits_{V(t)} \mathbf{a}(x^i, t) \, dV
+    = \int_{V(t)} \left( \dfrac{\partial \mathbf{a}}{\partial t} + \nabla \cdot \left( \mathbf{v} \otimes \mathbf{a} \right)  \right) dV
+  \]
+  -- формула дифференцирования интеграла по переменному объёму (обобщение формулы
+  дифференцирования интеграла с переменным верхним пределом).
+\end{theorem}
+\begin{proof}
+  Согласно правилам замены переменных от $x^i$ к $\mathring{x}^i$: $x^i = x^i(\mathring{x}^j, t)$
+  при фиксированном $t$,
+  \begin{multline*}
+    \dfrac{d}{dt} \int_{V(t)} \mathbf{a}(x^i, t) \, dV
+    = \dfrac{d}{dt} \int_{\mathring{V}} \mathbf{a}(\mathring{x}^i, t) \det \left( \dfrac{\partial x^i}{\partial \mathring{x}^j}  \right) \, d\mathring{V}
+    = \dfrac{d}{dt} \int_{\mathring{V}} \mathbf{a}(\mathring{x}^i, t) \sqrt{\dfrac{g}{\mathring{g}}} \, d\mathring{V} = \\
+    = \int_{\mathring{V}} \dfrac{d}{dt} \left( \mathbf{a} \sqrt{\dfrac{g}{\mathring{g}}} \right) \, d\mathring{V}
+    = \int_{\mathring{V}} \dfrac{1}{\sqrt{\mathring{g}}} \left( \dfrac{d\mathbf{a}}{dt}\sqrt{g} + \mathbf{a} \dfrac{d\sqrt{g}}{dt} \right) \, d\mathring{V} = 
+  \end{multline*}
+  Имеет место следующая формула (без доказательства): $\dfrac{d}{dt}\sqrt{g} = \sqrt{g} \, \nabla \cdot \mathbf{v}$.
+  Тогда продолжая:
+  \begin{multline*}
+    = \int_{\mathring{V}} \dfrac{\sqrt{g}}{\sqrt{\mathring{g}}} \left( \dfrac{d\mathbf{a}}{dt} + \mathbf{a} \cdot \nabla \cdot \mathbf{\mathring{v}} \right) \, d\mathring{V}
+    = \int_{V(t)} \left( \dfrac{d \mathbf{a}}{dt} + \mathbf{a} \nabla \cdot \mathbf{v} \right) \, dV = \\
+    = \int_{V(t)} \left( \left. \dfrac{\partial \mathbf{a}}{\partial t} \right|_{x^i} 
+      + \mathbf{v} \cdot \nabla \otimes \mathbf{a} + \mathbf{a} \nabla \cdot \mathbf{v}\right) dV
+    = \int_{V(t)} \left( \dfrac{\partial \mathbf{a}}{\partial t} + \nabla \cdot \left( \mathbf{v} \otimes \mathbf{a} \right)  \right) dV
+  \end{multline*}
+\end{proof}
 
 
 \subsection{Уравнение неразрывности в переменных Эйлера}
@@ -311,10 +307,8 @@ $\varphi(x^i, t)$ -- скалярное поле.
 
 % TODO чтото тут
 
-\[
-  \int_{V(t)} \Omega dV = 0
-\]
--- если $V(t)$ -- некоторая конкретная область, тогда это уравнение -- интегральное
+Для произвольного интеграла по переменной области $\int_{V(t)} \Omega dV = 0$,
+если $V(t)$ -- некоторая конкретная область, тогда это уравнение -- интегральное
 (Вольтерры), если $V(t)$ -- произвольная (т.е. ищем решения, верные для целого класса
 областей), тогда $\Omega = 0$. Вот таким образом можно перейти от интегрального
 представления закона к дифференциальному.
@@ -342,7 +336,8 @@ $\varphi(x^i, t)$ -- скалярное поле.
   \left( \dfrac{\partial \rho}{\partial t} + \mathbf{v} \nabla \rho \right) &= - \rho \nabla \mathbf{v} \\
   \dfrac{d \rho}{dt} &= - \rho \nabla \cdot \mathbf{v}
 \end{align*}
-последнее называют уравнением неразнывности в полных дифференциалах.
+последнее называют уравнением неразрывности в полных дифференциалах.
+
 
 \subsection{Закон изменения количества движения (закон сохранения импульса)}
 
