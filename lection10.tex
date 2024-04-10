@@ -1,0 +1,285 @@
+\subsection{Дифференциальная форма закона СЭ}
+
+\[
+  \dfrac{\partial \rho \varepsilon}{\partial t}  + \nabla \cdot \left( \rho \mathbf{v} \varepsilon - T \mathbf{v} + \mathbf{q} \right) = \rho \mathbf{f} \cdot \mathbf{v} + \rho q,
+\]
+где $\varepsilon = e + \dfrac{v^2}{2}$ -- плотность полной энергии; $e = \dfrac{dU}{dm}$, 
+$K = \int_V \dfrac{\rho \mathbf{v}^2}{2} \, dV = \int_V \dfrac{V^2}{2} \, dm$.
+
+$\mathbf{a} = \rho \mathbf{v} \varepsilon - T \mathbf{v} + \mathbf{q} \equiv a^i \mathbf{r}_i$.
+$a^i = \rho v^i \varepsilon - \tensor{T}{^i_j} v^j + q^i$.
+
+\[
+  \rho \dfrac{d\varepsilon}{dt} = \nabla \cdot (T \mathbf{v} - \mathbf{q}) + \rho \mathbf{f} \cdot \mathbf{v} + \rho q_n
+\]
+-- уравнение энергии в полных дифференциалах.
+
+\begin{theorem}[<<живых сил>>]
+  <<Живой силой>> называется кинетическая энергия.
+  Уравнение движения сплошной среды в полных дифференциалах:
+  \[
+    \rho \dfrac{d\mathbf{v}}{dt} = \nabla \cdot T + \rho \mathbf{f},
+  \]
+  домножим его скалярно на $\mathbf{v}$:
+  \[
+    \rho \dfrac{d}{dt} \left( \dfrac{v^2}{2} \right) = \nabla \cdot T \cdot \mathbf{v} + \rho \mathbf{f} \cdot \mathbf{v}.
+  \]
+
+  % TODO много дописать
+\end{theorem}
+
+\begin{remark}
+  Введём обозначения:
+  \begin{enumerate}
+    \item $K = \int_V \rho \dfrac{v^2}{2} \, dV$ -- кинетическая энергия сплошной среды;
+    \item $W_m = \int_V \rho \mathbf{f} \cdot \mathbf{v} \, dV$ -- мощность внешних массовых сил;
+    \item $W_{(i)} = - \int_V T \cddot \nabla \otimes \mathbf{v}^T \, dV$ -- мощность внутренних поверхностных сил;
+    \item $\omega_{(i)} \equiv - T \cddot \nabla \otimes \mathbf{v}^T$ -- удельная мощность внутренних поверхностных сил, причём если $T$ -- симметричный, то
+      \[
+        \omega_{(i)} = \dfrac{1}{2} \left(  T \cddot \nabla \otimes \mathbf{v}^T + T \cddot \nabla \mathbf{v}^T \right) = T \cddot D,
+      \]
+      где тензор $D$ называется \emph{тензором скоростей деформации}.
+  \end{enumerate}
+  С учётом введённых выше обозначений, закон СЭ принимает вид:
+  \[
+    \dfrac{dK}{dt} = W_\Sigma + W_{(i)} + W_m
+  \]
+  -- теорема <<живых сил>> (теорема о кинетической энергии).
+\end{remark}
+
+В случае абсолютно твёрдого тела, мощность внутренних сил равна нулю: $W_{(i)} \equiv 0$.
+
+
+
+\subsection{Уравнение притока тепла}
+
+Вычтем из уравнения для полной энергии уравнение локальной теоремы о кинетической энергии:
+\[
+  \rho \dfrac{de}{dt} = - \nabla \mathbf{q} + \rho q_n + T \cddot \nabla \mathbf{v}^T
+\]
+-- \emph{локальное уравнение притока тепла или уравнение изменения плотности внутренней энергии}.
+Проинтегрируем его:
+\[
+  \int_V \rho \dfrac{de}{dt} \, dV = - \int_V \nabla \cdot \mathbf{q} \, dV + \int_V \rho q_m \, dV
+  + \int_V T \cddot \nabla \otimes \mathbf{v}^T \, dV
+\]
+С учётом наших обозначений, получаем интегральную формулировку уравнения притока тепла:
+\[
+  \dfrac{dU}{dt} = Q_\Sigma + Q_m - W_{(i)}.
+\]
+иногда обозначают $Q = Q_\Sigma + Q_m$.
+
+\begin{align*}
+  dU = Q dt - W_{(i)} dt; \\
+  dU = \delta Q - \delta A_{(i)}; \\
+  \delta Q = dU + \delta A_{(i)}.
+\end{align*}
+
+
+\subsection{Закон сохранения энергии в начальной конфигурации}
+
+Переход от материального (лагранжевого) описания к пространственному (эйлерову) описанию
+осуществляется с помощью интегральной формулировки.
+
+Напомним интегральную формулировку закона сохранения энергии:
+\[
+  \dfrac{d}{dt} \int_V \rho \left( e + \dfrac{v^2}{2} \right) \, dV
+  = - \int_\Sigma \mathbf{n} \cdot \mathbf{q} \, d\Sigma
+  + \int_V \rho q_m \, dV
+  + \int_V \rho \mathbf{f} \cdot \mathbf{v} \, dV
+  + \int_\Sigma \mathbf{n} \cdot \left( T \cdot \mathbf{v} \right) \, d\Sigma.
+\]
+
+Так как:
+\begin{align*}
+  &\int_V \rho \left( e + \dfrac{v^2}{2} \right) \, dV
+  = \int_{\mathring{V}} \mathring{\rho} \left( e + \dfrac{v^2}{2} \right) \, d\mathring{V}; \\
+  &\int_\Sigma \mathbf{n} \cdot T \cdot \mathbf{v} \, d\Sigma
+  = \int_\Sigma \mathbf{v}^T \left( \mathbf{n} \cdot T \right) \, d\Sigma
+  = \int_\Sigma \mathbf{v} \cdot d\mathcal{\mathbf{F}}
+  = \int_\Sigma \mathbf{v} \cdot \mathring{\mathbf{t}}_n \, d\mathring{\Sigma}
+  = \int_{\mathring{\Sigma}} \mathbf{v} \cdot \mathring{\mathbf{n}} \cdot P \, d\mathring{\Sigma} \\
+  &\int_\Sigma \mathbf{n} \cdot \mathbf{q} \, d\Sigma
+  = \left|\, \begin{aligned} \mathring{q}_n = \dfrac{dQ_\Sigma}{d\mathring{\Sigma}} \\ \mathring{q}_n = - \mathring{\mathbf{n}} \cdot \mathring{\mathbf{q}} \end{aligned} \,\right| 
+  = \int_{\mathring{\Sigma}} \mathring{\mathbf{n}} \cdot \mathring{\mathbf{q}} \, d\mathring{\Sigma}
+\end{align*}
+
+Тогда получаем представление уравнения изменения энергии в отсчётной конфигурации:
+\[
+  \dfrac{d}{dt} \int_{\mathring{V}} \mathring{\rho} \left( e+\dfrac{v^2}{2} \right) \, d\mathring{V}
+  = \int_{\mathring{\Sigma}} \mathring{\mathbf{n}} \cdot \mathbf{q} \, d\mathring{\Sigma}
+  + \int_{\mathring{V}} \rho q_m \, d\mathring{V}
+  + \int_\mathring{V} \mathring{\rho} \mathbf{f} \cdot \mathbf{v} \, d\mathring{V}
+  - \int_{\mathring{\Sigma}} \mathring{\mathbf{n}} \cdot P \cdot \mathbf{v} \, d\mathring{\Sigma}
+\]
+-- интегральный закон сохранения энергии в материальном описании.
+
+По формуле Остроградского-Гаусса:
+\[
+  \int_{\mathring{V}} \left(  \rho \dfrac{d}{dt} \left( e+\dfrac{v^2}{2} \right) + \mathring{\nabla} \cdot \mathring{\mathbf{q}} - \mathring{\rho} q_m - \mathring{\rho} \mathbf{f} \cdot \mathbf{v} + \mathring{\nabla} \cdot \left( P\cdot\mathbf{v} \right)  \right) \, d\mathring{V} = 0
+\]
+в силу произвольности $V$:
+\[
+  \rho \dfrac{d}{dt} \left( e+\dfrac{v^2}{2} \right) + \mathring{\nabla} \cdot \mathring{\mathbf{q}} - \mathring{\rho} q_m - \mathring{\rho} \mathbf{f} \cdot \mathbf{v} + \mathring{\nabla} \cdot \left( P\cdot\mathbf{v} \right) = 0
+\]
+-- уравнение энергии (локальная формулировка) в материальном (лагранжевом) описании.
+
+все функции здесь зависят от $(X^i, t)$ или $(\mathring{x}^i, t)$, причём
+\[
+  \dfrac{d}{dt} \left( e+\dfrac{v^2}{2} \right) = \dfrac{\partial }{\partial t} \left( e+\dfrac{v^2}{2} \right) |_{x^i}
+\]
+-- полная производная совпадает с частной.
+
+
+
+\subsection{Нулевой закон термодинамики}
+
+\paragraph{Аксиома 8 (Закон существования абсолютной температуры)}
+Для всякой материальной точки $M$ любой сплошной среды для любого момента времени существует
+скалярная положительная функция, обозначаемая $\Theta(X^i, t) > 0$, которая называется
+\emph{абсолютной температурой}.
+
+\begin{remark}
+  Этот закон локальный.
+\end{remark}
+\begin{remark}
+  Температура $\Theta$ в законе сохранения не повляется явным образом.
+\end{remark}
+\begin{remark}
+  $\exists \Theta_{min} = 0$
+\end{remark}
+
+
+
+\subsection{Второй закон термодинамики}
+
+\paragraph{Аксиома 9 (Второй закон термодинамики)}
+Для всякой сплошной среды в любой момент времени существуют 2 скалярные аддитивные
+функции:
+\begin{enumerate}
+  \item $H$ -- энтропия;
+  \item $\bar{Q}^* \geqslant 0$ -- производство энтропии за счёт внутренних источников.
+\end{enumerate}
+Которые удовлетворяют следующему дифференциальному уравнению:
+\[
+  \dfrac{dH}{dt} = \bar{Q} + \bar{Q}^*,
+\]
+где $\bar{Q} = \bar{Q}_m + \bar{Q}_\Sigma$,
+а $\bar{Q}^i \geqslant 0$ -- неравенство Планка.
+
+\begin{remark}
+  $\dfrac{dH}{dt} \geqslant \bar{Q}$ -- неравенство Клаузиуса.
+\end{remark}
+
+
+\subsection{Интегральная формулировка 2-го закона термодинамики}
+
+В силу аддитивности $H$, можно записать $H = \int_V dH$, где $dH$ -- энтропия элементарного
+объёма $dV$. Аналогично, $\bar{Q}^* = \int_V d\bar{Q}^*$, где $d\bar{Q}^*$ -- производство
+энтропии за счёт внешних источников в $dV$.
+
+\begin{definition}
+  Введём величины:
+  \begin{enumerate}
+    \item $\eta = \dfrac{dH}{dm}$ -- плотность энтропии;
+    \item $q^* = \theta \dfrac{d\bar{Q}^*}{dm} \geqslant 0$
+      -- плотность внутреннего производства энтропии.
+  \end{enumerate}
+\end{definition}
+
+Тогда можно получить интегральную формулировку второго закона термодинамики:
+\[
+  \dfrac{d}{dt} \int_V \rho \eta \, dV = \int_V \dfrac{\rho (q_m + q^*)}{\theta} \, dV
+  - \int_\Sigma \dfrac{\mathbf{n} \cdot \mathbf{q}}{\theta} \, d\Sigma.
+\]
+
+
+\subsection{Дифференциальная формулировка 2-го закона термодинамики}
+
+\[
+  \rho \dfrac{d\eta}{dt} = - \nabla \cdot \left( \dfrac{\mathbf{q}}{\theta} \right) + \rho \dfrac{q_m + q^*}{\theta}
+\]
+
+
+Так как $\nabla \left( \dfrac{\mathbf{q}}{\theta} \right) = \dfrac{\nabla \mathbf{q}}{\theta} + \mathbf{q} \cdot \dfrac{1}{\theta^2} \nabla \theta$, то:
+\begin{align*}
+  \rho \dfrac{d\eta}{dt} =
+  - \dfrac{\nabla \mathbf{q}}{\theta}
+  + \dfrac{1}{\theta^2} \mathbf{q} \nabla \theta
+  + \rho \dfrac{q_m + q^*}{\theta} \\
+  \rho \theta \dfrac{d\eta}{dt} =
+  - \nabla \mathbf{q}
+  + \rho (q_m + q^*)
+  + \dfrac{1}{\theta} \mathbf{q} \nabla \theta
+\end{align*}
+
+\begin{definition}
+  Функция $\omega^* = \rho q^* + \dfrac{1}{\theta} \mathbf{q} \nabla \theta$ называется
+  \emph{функцией диссипации (функцией рассеивания энергии)}
+\end{definition}
+
+\paragraph{Аксиома 9a} Для любой точки $M$ в любой сплошной среде в любой момент времени всегда выполнается неравенство Фурье: $\mathbf{q} \cdot \nabla \theta \leqslant 0$.
+
+В терминах функции диссипации $\rho q^* = \omega^* - \dfrac{1}{\theta} \mathbf{q} \nabla \theta \geqslant 0$. Производство энтропии за счёт внутренних источников $q^*$ состоит из двух частей
+(две причины внутреннего производства энтропии):
+\begin{enumerate}
+  \item За счёт функции диссипации энергии, которая определяется тензором деформации, температурой,
+    но не зависит от $\nabla \alpha$: $\omega^* = \omega^* ( F, \theta )$ (будет доказано 
+    позже). Эта функция определяет внутреннее производство энтропии за счёт внутреннего трения.
+    \begin{itemize}
+      \item Примером этого может послужить резкое сгибание твёрдого тела -- линия сгиба заметно
+        нагревается;
+      \item Вторым примером может послужить резкое движение бруска по поверхности -- поверхность 
+        соприкосновения нагревается;
+      \item Сварка трением;
+      \item Консольно закреплённая балка, при отклонении от положения равновесия и отпускании,
+        амплитуда колебаний будет уменьшаться как раз за счёт диссипации.
+    \end{itemize}
+    
+  \item Если тело не движеться, то градиент деформации $F = E$, а $w^* \equiv 0$; но есть нагрев
+    тела, причём предположим, что $\theta = \theta (X^i, t)$ и $\nabla \theta \neq 0$. Тогда
+    появляется внутреннее производство энтропии.
+\end{enumerate}
+
+Если $\theta = \theta(t)$, т.е. $\nabla \theta \equiv 0$, тогда 
+\[
+  \rho q^* = \omega^* \geqslant 0
+\]
+-- неравенство диссипации.
+
+\subsection{Тепловые машины и КПД}
+
+\begin{definition}
+  \emph{Тепловые машины} -- устройства (совокупность СС), которые преобразуют тепло в механическую
+  работу (это различные двигатели), или наоборот (нагревательные или холодильные устройства).
+  Или машины, которые включают процессы в обе стороны (это $\dots$)
+\end{definition}
+
+Тепловые машины можно разделить на три типа:
+\begin{enumerate}
+  \item Область $V$ (рабочее тело) состоит из одних и тех же материальных частиц.
+    Примером таких машин служит поршень, газ под которым состоит из одних и тех же мат частиц.
+  \item Рабочее тело $V$ не меняется во времени, но в этой области находится различные
+    материальные точки. В качестве примера камера с горючим, в которое поступает горючее,
+    уходят продукты горения.
+  \item $V$ -- переменная, материальные точки разные. Двигатели, в которых под поршень поступает
+    горючее, уходят продукты горения.
+\end{enumerate}
+
+Для простоты рассмотрим только тепловые машины первого типа.
+Запишем 1-ый закон термодинамики (уравнение притока тепла):
+\[
+  \dfrac{dU}{dt} = Q - W_{(i)} \Leftrightarrow 
+  U(t) = U(t_1) + \int\limits_{t_1}^t Q(\tau) \, d\tau - \int\limits_{t_1}^t W_{(i)}(\tau)\, d\tau
+\]
+Обозначим $\Delta U = U(t) - U(t_1)$ -- изменение внутренней энергии,
+$C = \int\limits_{t_1}^t Q(\tau) \, d\tau$ -- суммарное тепло за время, 
+$A_{(i)} = \int\limits_{t_1}^t W_{(i)}(\tau) \, d\tau$ -- работа внутренних сил.
+
+Тогда получим: $\Delta U + A_{(i)} = C$.
+
+Проинтегрируем аналогично второй закон термодинамики:
+\[
+  \Delta U = H(t) - H(t_1), \Delta \geqslant \bar{C},
+\]
+где $\bar{C} = \int\limits_{t_1}^t \bar{Q} \, d\tau$ -- суммарное производство энтропии внешних источников за время.
