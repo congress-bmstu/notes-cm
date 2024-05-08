@@ -1,0 +1,205 @@
+\section{Полная система законов сохранения}
+Введём классификацию форм записи законов сохранения
+\begin{table}[]
+\centering
+\label{tab:my-table}
+\begin{tabular}{|ccccc|}
+\hline
+\multicolumn{5}{|c|}{Формы записи законов сохранения} \\ \hline
+\multicolumn{3}{|c|}{\begin{tabular}[c]{@{}c@{}}В эйлеровом \\ (пространственном) описании\end{tabular}} &
+  \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}В лагранжевом \\ (материальном) описании\end{tabular}} \\ \hline
+\multicolumn{1}{|c|}{В полных $ \mathbf{d} $} &
+  \multicolumn{1}{c|}{В дивергентной форме} &
+  \multicolumn{1}{c|}{$ \int $ форма} &
+  \multicolumn{1}{c|}{В полных $ \mathbf{d} $} &
+  $ \int $ форма \\ \hline
+\end{tabular}
+\caption{}
+\end{table}
+
+\begin{remark} 
+  Рассматриваем только неполярные среды, то есть  
+  \[
+    T = T^{\mathsf T}.
+  \]
+  При этом исключаем у рассматриваемого закона иззменения моментов количества
+  движения, то есть $ T = T^{\mathsf{T}} $ --- это оно и есть.
+\end{remark}
+
+\begin{remark}
+  Все законы сохранения записываются в единой универсальной для всех всех форме.
+\end{remark}
+
+%TODO
+\paragraph{1. Эйлерово описание, форма в полных дифференциалах.}
+\[
+    \rho \frac{d\bar A_\alpha}{dt} = \nabla \cdot B_\alpha + \rho C_\alpha, \quad
+    (\alpha = 1, \ldots, 6 \text{ --- номер группы уравнений}).
+\]
+Здесь $ \bar A_\alpha $, $ B_\alpha $, $ C_\alpha $ --- обобщённые координатные
+столбцы (векторами лучше не называть). Выпишем их: 
+\begin{gather*}
+  \bar{A}_\alpha = (1/\rho, \mathbf{v}, \varepsilon, \eta, \mathbf{u},
+  F^{\mathsf T})^{\mathsf T}, \quad B_\alpha = (\mathbf{v}, T, T\cdot
+  \mathbf{v}-\mathbf{q}, -\mathbf{q}/\theta, 0, \rhoF^{\mathsf T}\otimes
+  \mathbf{v} )^{\mathsf T}, \\ C_\alpha = (0, \mathbf{f}, \mathbf{f}\cdot
+  \mathbf{v} + q_m, (q_m + q^\ast)/\theta, \mathbf{v}, 0)^{\mathsf T}.
+\end{gather*}
+
+При $ \alpha = 1 $ --- уравнение неразрывности. 
+\[
+  \rho \frac{d(1/\rho)}{dt} = \nabla \cdot \mathbf{v}.
+\]
+Проверим. 
+\begin{align*}
+  - \frac{1}{\rho} \frac{d\rho}{dt} &= \nabla \mathbf{v},\\
+  \frac{d\rho}{dt} + \rho\nabla \cdot \mathbf{v} &= 0 &\Rightarrow \frac{\partial
+\rho}{\partial t} + \mathbf{v}\nabla\rho + \rho\nabla\mathbf{v} &= 0,\\
+                                                                && \frac{\partial
+                                                                \rho}{\partial
+                                                                t}
+                                                                +\nabla(\rho\mathbf{v})
+                                                                &= 0.
+\end{align*}
+
+
+
+При $ \alpha = 2 $ --- уравнение движения. %TODO
+
+При $ \alpha =3 $ --- уравнение энергии ($ \varepsilon = e + v^2/2$) 
+\begin{equation}\label{eq:9}
+  \rho = \frac{d \varepsilon}{dt} = \nabla \cdot (T \cdot \mathbf{v} -
+  \mathbf{q}) + \rho \mathbf{f} \cdot \mathbf{v} + \rho q_m.
+\end{equation}
+
+При $ \alpha = 4 $ --- уравнение баланса энтропии. 
+\begin{equation}\label{eq:10}
+  \rho \frac{d\eta}{d t} = -\nabla (\mathbf{q}/\theta) + \rho \frac{q_m +
+  q^\ast}{\theta}.
+\end{equation}
+
+При $ \alpha = 5 $ --- кинематическое соотношение (раньше не встречалось!) 
+\[
+  \rho \frac{d\mathbf{u}}{dt} = \rho \mathbf{v}.
+\]
+Действительно $ \frac{d\mathbf{u}}{dt} = \mathbf{v} $ --- следствие из
+определения $ \mathbf{v} $ и $ \mathbf{u} $: 
+\begin{align*}
+  \mathbf{v} &= \frac{d \mathbf{x}}{dt} \big|_{x^i} = \frac{\partial
+  \mathbf{x}}{\partial t} + \mathbf{v} \cdot \nabla \otimes \mathbf{x},\\
+  %TODO %11
+\end{align*}
+\eqref{eq:10} $ \to $ \eqref{eq:9}:
+\[
+  \mathbf{v} = \frac{d}{dt}(\mathbf{u} + \mathring{\mathbf{x}}) =
+  \frac{d\mathbf{u}}{dt}.
+\]
+
+При $ \alpha = 6 $ --- динамическое уравнение совместности деформации 
+\[
+  \rho \frac{dF^{\mathsf T}}{dt} = \nabla\cdot (\rho F^{\mathsf T}\otimes
+  \mathbf{v}).
+\]
+Нигде не используется --- самая современная! Мало кто владеет полностью
+математическим аппаратом, а мы (теперь) владеем!
+
+\paragraph{2. Дивергентная форма законов сохранения в эйлеровом описании.}
+\[\boxed{
+  \frac{\partial \rho A_\alpha}{\partial t} + \nabla \cdot (\rho \mathbf{v}
+\otimes A_\alpha - B_\alpha) = \rho C_\alpha, \quad (\alpha = 1, \ldots, 6).
+}
+\]
+Заметим, что, как и выше, неизвестные константы могут быть и скалярами, и
+векторами и т.\,п. 
+
+Почему дивергентная? Потому что оператор дивергенции и потому что коэффициент
+при ней не единичен (?).  
+\[
+  A_\alpha = (1, \mathbf{v}, \varepsilon, \eta, \mathbf{u}, F^{\mathsf T})
+\]
+Остальные коэффициенты те же, отличие только между $ A_1 $ и $ \bar{A}_1 $.
+
+При $ \alpha = 1 $ имеем  
+\[
+  \frac{\partial \rho}{\partial t} + \nabla \cdot \rho \cdot \mathbf{v},
+\]
+где, например, $ A_1 \to \rho \mathbf{v} \otimes = \rho \mathbf{v} $ (такое соглашение).
+Аналогично $ A_2 \to \rho \mathbf{v} \otimes \mathbf{v} $, \ldots
+
+Остальное выписывать не будем.
+
+Дивергентная форма хороша в численных методах, потому что можно перейти в
+интегральную форму. А всё в численных методах решается интегральной формой,
+никто по старинке не пользуется методом конечно-разностных сумм, не строит
+прямоугольную сетку.
+
+\paragraph{3. Интегральная форма в эйлеровом описании.}  
+\[
+  \frac{d}{dt} \int\limits_{V}^{} \rho A_\alpha\,d V =
+  \int\limits_{\Sigma}^{}\mathbf{n} \cdot B_\alpha\,d\Sigma +
+  \int\limits_{V}^{}\rho C_\alpha\,dV.
+\]
+(Второе слагаемое --- поток). 
+
+Есть мнение, что интегральное исчисление более фундаментально, чем
+дифференциальное. Действительно --- в том смысле, что имеет больше физических
+приложений.
+
+Например, при $ \alpha = 1 $ 
+\[
+    \frac{d}{dt}\int\limits_{V}^{}\rho\,dV = 0 \Rightarrow \frac{dm}{dt} = 0.
+\]
+В данном случае первый интеграл --- это масса.
+
+\paragraph{4. ...}
+%TODO:
+
+При $ \alpha = 1 $  
+\[
+  \mathring{\rho} \frac{d}{dt} \left( \frac{\rho}{\mathring{\rho}}\det F \right)
+  = 0 
+\]
+Но в $ \mathring{\mathcal K} $ $ \rho = \mathring{\rho} $, $ F = E $ %TODO
+ 
+\[
+    \boxed{
+    \frac{\mathring{\rho}}{\rho} = \det F.}
+\]
+
+
+При $ \alpha = 6 $  
+\[
+  \mathring{\rho} \frac{dF^{\mathsf T}}{dt} = \mathring{\nabla}\cdot (\rho E
+  \otimes \mathbf{v}).
+\]
+Так как $ \mathring{\rho} = \mathrm{const} $, то  
+\begin{align*}
+  \frac{dF^{\mathsf T}}{dt} &= \mathring{\nabla} \cdot (E \otimes \mathbf{v}) =
+  \mathring{\nabla} \cdot \mathbf{v},\\
+\end{align*}
+
+%TODO
+
+\paragraph{5.}
+%TODO
+
+ 
+\[
+  \frac{d}{dt} \int\limits_{\mathring{V}}^{}\mathring{\rho}
+  \mathring{A}_\alpha\,dV = \int\limits_{\mathring\Sigma}^{}\mathring n\cdot
+  \mathring{B}_\alpha\,d\mathring{\Sigma} +
+  \int\limits_{\mathring{V}}^{}\mathring{\rho} C\,d\mathring V.
+\]
+Фундаментальный закон мира: любое изменение разделяется на изменение от
+внутренних источников и от внешних. Так и в квантовой физике, и в экономике, и
+вообще везде.
+
+\dimus{Современная экономика, я уж себе позволю, совсем ещё не развита. На уровне законов Ньютона
+--- на 300 лет отстаёт от остальных наук. В МСС присутствуют все законы
+экономики, если хотите заниматься серьёзной экономикой, занимайтесь МСС.}
+
+При $ \alpha = 1 $  
+\[
+  \frac{d}{dt} \int\limits_{\mathring{V}}^{}\mathring{\rho}\,d\mathring{V},
+\]
+
